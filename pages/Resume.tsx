@@ -154,7 +154,7 @@ const Resume: React.FC = () => {
                   >
                     <div className="absolute top-1.5 -left-[5px] w-2 h-2 rounded-full bg-blue-600"></div>
                     <div className="flex justify-between items-baseline mb-1">
-                      <h3 className="text-lg font-bold text-ink">{exp.role}</h3>
+                      <h3 className="text-lg font-bold text-ink dark:text-paper">{exp.role}</h3>
                       <span className="text-xs font-hand font-bold text-pencil bg-gray-50 px-2 py-0.5 rounded">{exp.period}</span>
                     </div>
                     <p className="text-blue-600 font-serif font-bold italic text-sm mb-2">{exp.company}</p>
@@ -188,7 +188,7 @@ const Resume: React.FC = () => {
                     className="flex justify-between items-start"
                   >
                     <div>
-                      <h3 className="text-md font-bold text-ink">{edu.school}</h3>
+                      <h3 className="text-md font-bold text-ink dark:text-paper">{edu.school}</h3>
                       <p className="text-pencil italic text-xs">{edu.degree}</p>
                     </div>
                     <span className="text-xs font-hand font-bold text-pencil bg-gray-50 px-2 py-0.5 rounded">{edu.year}</span>
