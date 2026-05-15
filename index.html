@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vidhi Bhanushali - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Crimson Text"', 'serif'],
+              hand: ['"Patrick Hand"', 'cursive'],
+              sans: ['"Crimson Text"', 'serif'],
+            },
+            colors: {
+              'paper': 'var(--paper)',
+              'ink': 'var(--ink)',
+              'pencil': 'var(--pencil)',
+              'highlight': 'var(--highlight)',
+            },
+            backgroundImage: {
+              'doodle-pattern': "url(\"data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3C/g%3E%3C/svg%3E\")",
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --paper: #fdfbf7;
+        --ink: #2c2c2c;
+        --pencil: #555555;
+        --highlight: #fef08a;
+      }
+      
+      .dark {
+        --paper: #1a1a1a;
+        --ink: #fdfbf7;
+        --pencil: #a1a1a1;
+        --highlight: #333333;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 80%; /* Reduces entire portfolio scale to 80% */
+      }
+      body {
+        font-family: 'Crimson Text', serif;
+        background-color: var(--paper);
+        color: var(--ink);
+        overflow-x: hidden;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Crazy Sketchy Scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--ink);
+        border: 4px solid var(--paper);
+        border-radius: 10px;
+      }
+
+      /* Hand-drawn border effect class */
+      .sketch-border {
+        border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+        border: 2px solid var(--ink);
+      }
+      
+      .sketch-button {
+        transition: all 0.2s ease;
+        border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      }
+      .sketch-button:hover {
+        transform: rotate(-1deg) scale(1.02);
+      }
+      
+      /* Marker highlight effect */
+      .marker-highlight {
+        background: linear-gradient(120deg, rgba(254, 240, 138, 0) 0%, rgba(254, 240, 138, 0.6) 10%, rgba(254, 240, 138, 0.4) 90%, rgba(254, 240, 138, 0) 100%);
+        background-position: 0% 80%;
+        background-repeat: no-repeat;
+        background-size: 100% 40%;
+      }
+      .dark .marker-highlight {
+        background: linear-gradient(120deg, rgba(51, 51, 51, 0) 0%, rgba(51, 51, 51, 0.6) 10%, rgba(51, 51, 51, 0.4) 90%, rgba(51, 51, 51, 0) 100%);
+      }
+
+      /* Crazy Scroll Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px) rotate(2deg);
+        transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(0); }
+        50% { transform: translateY(-10px) rotate(2deg); }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @keyframes scribble {
+        from { stroke-dashoffset: 1000; }
+        to { stroke-dashoffset: 0; }
+      }
+      .scribble-line {
+        stroke-dasharray: 1000;
+        animation: scribble 2s ease-out forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "lucide-react": "https://esm.sh/lucide-react@^0.560.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
