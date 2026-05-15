@@ -231,7 +231,7 @@ const Resume: React.FC = () => {
               <div className="space-y-3 font-serif text-xs">
                 <div className="p-3 bg-paper/30 border border-gray-100 rounded">
                   <p className="font-bold text-ink mb-1 text-[10px] uppercase tracking-wider opacity-60">Portfolio</p>
-                  <a href="https://vidhi-bhanushali.web.app" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline flex items-center">
+                  <a href="https://bit.ly/vidhibhanushali" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline flex items-center">
                     vidhibhanushali.design
                     <ExternalLink size={10} className="ml-1" />
                   </a>
