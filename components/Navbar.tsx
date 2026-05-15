@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
           <a href="mailto:vvidhi.design@gmail.com" className="text-pencil hover:text-ink transition-colors transform hover:-rotate-12" title="Email Me">
             <Mail size={20} strokeWidth={2} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-pencil hover:text-ink transition-colors transform hover:rotate-12" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/vidhi-manoj-bhanushali/" target="_blank" rel="noopener noreferrer" className="text-pencil hover:text-ink transition-colors transform hover:rotate-12" title="LinkedIn">
             <Linkedin size={20} strokeWidth={2} />
           </a>
           
