@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
             <a href="mailto:vvidhi.design@gmail.com" className="text-pencil hover:text-ink">
               <Mail size={24} />
             </a>
-            <a href="https://linkedin.com" className="text-pencil hover:text-ink">
+            <a href="https://www.linkedin.com/in/vidhi-manoj-bhanushali/" className="text-pencil hover:text-ink">
               <Linkedin size={24} />
             </a>
           </div>
