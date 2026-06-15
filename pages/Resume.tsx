@@ -398,10 +398,10 @@ const Resume: React.FC = () => {
                    <p className="text-[9px] uppercase tracking-widest text-gray-400 mb-2 font-serif font-bold">Scan to view digital portfolio</p>
                    <div className="w-20 h-20 bg-gray-100 mx-auto mb-2 flex items-center justify-center text-[8px] text-gray-300 font-bold border border-gray-200">QR CODE</div>
                    <p className="text-[10px] text-gray-400 font-serif font-bold">vidhibhanushali.design</p>
-                </div>
+                </div> */}
               </section>
             </div>
-          </div> */}
+          </div>
 
           {/* Footer for the PDF page */}
           <footer className="mt-16 pt-8 border-t-2 border-dashed border-gray-200 text-center text-[10px] text-gray-400 uppercase tracking-widest font-serif font-bold flex flex-col sm:flex-row justify-between items-center gap-4">
