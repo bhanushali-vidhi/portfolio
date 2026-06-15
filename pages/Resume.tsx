@@ -393,7 +393,7 @@ const Resume: React.FC = () => {
               </motion.section>
 
               {/* QR Code Placeholder for Print (Kept Hidden on Web Screen) */}
-              <section className="hidden print:block pt-4">
+              {/* <section className="hidden print:block pt-4">
                 <div className="border border-dashed border-gray-200 p-4 text-center rounded-xl bg-white">
                    <p className="text-[9px] uppercase tracking-widest text-gray-400 mb-2 font-serif font-bold">Scan to view digital portfolio</p>
                    <div className="w-20 h-20 bg-gray-100 mx-auto mb-2 flex items-center justify-center text-[8px] text-gray-300 font-bold border border-gray-200">QR CODE</div>
@@ -401,11 +401,11 @@ const Resume: React.FC = () => {
                 </div>
               </section>
             </div>
-          </div>
+          </div> */}
 
           {/* Footer for the PDF page */}
           <footer className="mt-16 pt-8 border-t-2 border-dashed border-gray-200 text-center text-[10px] text-gray-400 uppercase tracking-widest font-serif font-bold flex flex-col sm:flex-row justify-between items-center gap-4">
-            <span>References available upon request</span>
+            {/* <span>References available upon request</span> */}
             <span>Designed & Coded by Vidhi Bhanushali</span>
           </footer>
         </motion.div>
