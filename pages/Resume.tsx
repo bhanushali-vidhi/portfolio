@@ -1,9 +1,10 @@
-
 import React from 'react';
 import { motion } from 'motion/react';
 import { Download, Briefcase, GraduationCap, Code, Mail, Phone, MapPin, Linkedin, ArrowLeft, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Experience, Education } from '../types';
+import { DoodleUnderline, DoodleStar, DoodleArrow, DoodleCircle, DoodleSparkle, DoodleSpiral } from '../components/Doodles';
+
 
 const experiences: Experience[] = [
   {
@@ -66,18 +67,25 @@ const skills = [
   "Responsive Design", "A11y (Accessibility)", "Information Architecture"
 ];
 
+// Hand-sketched check bullet
+const CheckDoodle = () => (
+  <svg className="w-4 h-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+    <path d="M3,11 L8,15 L17,4" />
+  </svg>
+);
+
 const Resume: React.FC = () => {
   const handlePrint = () => {
     window.print();
   };
 
   return (
-    <div className="min-h-screen bg-[#fdfbf7] pt-24 pb-16 print:p-0 print:bg-white transition-colors duration-500">
+    <div className="min-h-screen bg-[#faf8f4] pt-24 pb-16 print:p-0 print:bg-white transition-colors duration-500">
       {/* Action Bar (Hidden on Print) */}
       <motion.div 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="max-w-3xl mx-auto px-6 mb-6 flex justify-between items-center print:hidden"
+        className="max-w-4xl mx-auto px-6 mb-6 flex justify-between items-center print:hidden"
       >
         <Link to="/" className="flex items-center text-[#555555] hover:text-[#2c2c2c] font-hand text-lg group">
           <ArrowLeft size={18} className="mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -94,37 +102,82 @@ const Resume: React.FC = () => {
         </motion.button>
       </motion.div>
 
-      {/* The Resume "Page" */}
+      
+      {/* Outer Notebook Wire Binder Wrapper for Large Screens */}
+      <div className="max-w-4xl mx-auto relative px-4 sm:px-8">
+        
+        {/* Binder Spiral - Hidden on print and mobile */}
+        <div className="absolute left-6 md:left-10 top-12 bottom-12 w-8 flex flex-col justify-between py-12 pointer-events-none print:hidden hidden sm:flex z-30">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <div key={i} className="flex items-center">
+              {/* Paper Hole punched in the sheet */}
+              <div className="w-3.5 h-3.5 rounded-full bg-[#f1eeeb] border border-ink/20 shadow-inner"></div>
+              {/* Wire spiral ring wrapping onto the sheet */}
+              <div className="w-7 h-3.5 bg-gradient-to-r from-pencil/10 to-ink/65 rounded-full shadow-sm -ml-[18px] opacity-80 border-t border-white/20 rotate-[12deg]"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* The Sketchbook Theme Resume Sheet */}
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className="max-w-3xl mx-auto bg-[#fdfbf7] shadow-xl print:shadow-none min-h-[1000px] p-8 md:p-12 border border-[rgba(44,44,44,0.1)] print:border-none"
-      >
+        className="w-full bg-[#fefdfa] shadow-xl print:shadow-none min-h-[1100px] rounded-r-2xl border-l-[10px] border-l-[#e8e4db] md:border-l-[14px] border-r border-y border-gray-200/50 p-6 sm:p-10 md:py-14 md:pl-24 md:pr-14 print:px-8 print:py-6 print:border-none print:bg-white print:rounded-none relative overflow-hidden"
+          style={{
+            backgroundImage: 'radial-gradient(#ddd 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
+            backgroundPosition: 'center'
+          }}
+        >
+          
+          {/* Notebook Margin Guidelines - Red Margin Lines on screen, hidden on print */}
+          <div className="absolute left-[3rem] top-0 bottom-0 w-[1.5px] bg-red-400/40 print:hidden hidden sm:block"></div>
+          <div className="absolute left-[3.2rem] top-0 bottom-0 w-[0.5px] bg-red-400/20 print:hidden hidden sm:block"></div>
+
+          {/* Decorative Corner Stars & Spirals in notebook background */}
+          <DoodleSpiral className="absolute top-[350px] right-[-40px] w-28 h-28 text-pencil/5 pointer-events-none print:hidden" />
+          <DoodleSpiral className="absolute top-[800px] left-[-30px] w-28 h-28 text-pencil/5 pointer-events-none print:hidden" />
+          <DoodleStar className="absolute top-8 right-12 w-12 h-12 text-yellow-400/40 animate-float pointer-events-none print:hidden" />
+         
+         {/* Subtle Hand-drawn Note near header */}
+           <div className="absolute right-14 top-24 font-hand text-blue-500/80 text-base rotate-6 print:hidden hidden lg:block select-none max-w-[170px] leading-tight text-center">
+             Currently looking for full-time roles! ✨
+             <DoodleArrow className="w-10 h-10 mx-auto text-blue-400/60 -rotate-[120deg] mt-1" />
+           </div>
         
         {/* Header Section */}
-        <header className="border-b-2 border-[#2c2c2c] pb-6 mb-8">
+        <header className="border-b-2 border-[#2c2c2c] pb-8 mb-10 relative">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end">
-            <div className="mb-4 md:mb-0">
-              <h1 className="text-4xl font-serif font-bold text-[#2c2c2c] mb-1 tracking-tight">Vidhi Bhanushali</h1>
-              <p className="text-xl font-hand text-blue-600 font-bold">Product Designer Intern</p>
+            <div className="mb-2 md:mb-0 relative inline-block">
+              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-ink mb-1.5 tracking-tight relative">
+                  Vidhi Bhanushali
+                </h1>
+                <p className="text-2xl font-hand text-blue-600 font-bold tracking-wide relative">
+                  Product Designer Intern
+                  <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[180px] h-3 text-blue-400/70" />
+                </p>
             </div>
-            <div className="space-y-1 text-left md:text-right text-[#555555] font-serif text-sm">
-              <div className="flex items-center md:justify-end space-x-2">
-                <span>vvidhi.design@gmail.com</span>
-                <Mail size={14} />
+            
+            <div className="space-y-1.5 text-left md:text-right text-pencil font-serif text-sm w-full md:w-auto">
+              <div className="flex items-center md:justify-end space-x-2.5">
+                <span className="hover:text-ink transition-colors">vvidhi.design@gmail.com</span>
+                <Mail size={15} className="text-pencil" />
               </div>
-              <div className="flex items-center md:justify-end space-x-2">
+              <div className="flex items-center md:justify-end space-x-2.5">
                 <span>+91 81693 00611</span>
-                <Phone size={14} />
+                <Phone size={15} className="text-pencil" />
               </div>
-              <div className="flex items-center md:justify-end space-x-2">
+              <div className="flex items-center md:justify-end space-x-2.5">
                 <span>Mumbai, India</span>
-                <MapPin size={14} />
+                <MapPin size={15} className="text-pencil" />
               </div>
-              <div className="flex items-center md:justify-end space-x-2 text-blue-600">
-                <a href="https://linkedin.com/in/vidhi-bhanushali" target="_blank" rel="noreferrer" className="hover:underline">linkedin.com/in/vidhi-bhanushali</a>
-                <Linkedin size={14} />
+              <div className="flex items-center md:justify-end space-x-2.5 text-blue-600 font-bold transition-all hover:translate-x-0.5">
+                <a href="https://linkedin.com/in/vidhi-bhanushali" target="_blank" rel="noreferrer" className="hover:underline flex items-center gap-1.5">
+                  linkedin.com/in/vidhi-bhanushali
+                  <ExternalLink size={12} />
+                </a>
+                <Linkedin size={15} className="text-blue-600" />
               </div>
             </div>
           </div>
