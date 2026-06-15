@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-paper/95 z-50 border-b-2 border-dashed border-gray-300 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 bg-paper z-50 border-b-2 border-dashed border-gray-300 shadow-sm">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         
         {/* Left Corner: Name */}
