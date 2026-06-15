@@ -183,19 +183,22 @@ const Resume: React.FC = () => {
           </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           
           {/* Main Column (Experience & Education) */}
-          <div className="md:col-span-2 space-y-10">
+          <div className="md:col-span-8 space-y-12 pr-0 md:pr-4">
             
-            {/* Experience Section (Latest to Oldest) */}
-            <section>
-              <h2 className="text-lg font-serif font-bold text-[#2c2c2c] uppercase tracking-[0.2em] border-b border-[rgba(44,44,44,0.1)] pb-2 mb-6 flex items-center">
-                <Briefcase size={18} className="mr-3 text-blue-600" />
-                Experience
-              </h2>
+            {/* Experience Section */}
+            <section className="relative">
+              <div className="relative inline-block mb-8">
+                <h2 className="text-xl font-hand font-bold text-ink uppercase tracking-wider flex items-center">
+                  <Briefcase size={20} className="mr-3 text-pencil" strokeWidth={2.5} />
+                  Experience
+                </h2>
+                <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[140px] h-3.5 text-blue-500/60 pointer-events-none" />
+              </div>
               
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {experiences.map((exp, idx) => (
                   <motion.div 
                     key={exp.id} 
@@ -203,139 +206,210 @@ const Resume: React.FC = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="relative pl-4 border-l border-[rgba(44,44,44,0.1)]"
+                    className="relative pl-6 border-l-2 border-dashed border-pencil/30 group py-1"
                   >
-                    <div className="absolute top-1.5 -left-[5px] w-2 h-2 rounded-full bg-blue-600"></div>
-                    <div className="flex justify-between items-baseline mb-1">
-                      <h3 className="text-lg font-bold text-[#2c2c2c]">{exp.role}</h3>
-                      <span className="text-xs font-hand font-bold text-[#555555] bg-[rgba(253,251,247,0.6)] px-2 py-0.5 rounded">{exp.period}</span>
-                    </div>
-                    <p className="text-blue-600 font-serif font-bold italic text-sm mb-2">{exp.company}</p>
-                    <ul className="space-y-1.5">
-                      {exp.description.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start text-xs text-[#555555] leading-relaxed">
-                          <span className="mr-2 mt-1.5 w-1 h-1 rounded-full bg-gray-300 flex-shrink-0"></span>
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
+                    
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-2 gap-2">
+                        <h3 className="text-lg font-bold text-ink font-serif hover:text-blue-600 transition-colors">
+                          {exp.role}
+                        </h3>
+                        <span className="text-xs font-hand font-bold text-pencil bg-gray-100/60 print:bg-white border border-gray-200/30 print:border-none px-2.5 py-0.5 rounded shadow-sm print:shadow-none transform rotate-1">
+                          {exp.period}
+                        </span>
+                      </div>
+                      
+                      <p className="text-blue-600 font-serif font-bold italic text-sm mb-4">
+                        {exp.company}
+                      </p>
+                      
+                      <ul className="space-y-2.5">
+                        {exp.description.map((bullet, bIdx) => {
+                          // Make high-craft metrics highlight
+                          let highlightedText: React.ReactNode = bullet;
+                          if (bullet.includes("40%") || bullet.includes("35%") || bullet.includes("50%") || bullet.includes("40%")) {
+                            // Substring and wraps metrics in sketchy circled components
+                            highlightedText = (
+                              <span>
+                                {bullet.split(/(\d+%\s*(?:lower|faster|reduction)?)/i).map((part, pIdx) => {
+                                  if (/\d+%/.test(part)) {
+                                    return (
+                                      <span key={pIdx} className="relative inline-block px-1 mx-0.5 font-bold">
+                                        <span className="absolute inset-0 border border-red-400 rounded-full sketch-border rotate-2 scale-11 opacity-70 print:border-none"></span>
+                                        <strong className="text-ink font-serif font-bold relative z-10">{part}</strong>
+                                      </span>
+                                    );
+                                  }
+                                  return part;
+                                })}
+                              </span>
+                            );
+                          }
 
-            {/* Education Section (Latest to Oldest) */}
-            <section>
-              <h2 className="text-lg font-serif font-bold text-[#2c2c2c] uppercase tracking-[0.2em] border-b border-[rgba(44,44,44,0.1)] pb-2 mb-6 flex items-center">
-                <GraduationCap size={20} className="mr-3 text-blue-600" />
-                Education
-              </h2>
-              <div className="space-y-6">
-                {education.map((edu, idx) => (
-                  <motion.div 
-                    key={edu.id} 
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex justify-between items-start"
-                  >
-                    <div>
-                      <h3 className="text-md font-bold text-[#2c2c2c]">{edu.school}</h3>
-                      <p className="text-[#555555] italic text-xs">{edu.degree}</p>
-                    </div>
-                    <span className="text-xs font-hand font-bold text-[#555555] bg-[rgba(253,251,247,0.6)] px-2 py-0.5 rounded">{edu.year}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
+                          return (
+                            <li key={bIdx} className="flex items-start text-xs text-pencil leading-relaxed">
+                              <CheckDoodle />
+                              <span className="flex-1">{highlightedText}</span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Education Section */}
+              <section className="relative pt-4">
+                <div className="relative inline-block mb-8">
+                  <h2 className="text-xl font-hand font-bold text-ink uppercase tracking-wider flex items-center">
+                    <GraduationCap size={22} className="mr-3 text-pencil" strokeWidth={2.5} />
+                    Education
+                  </h2>
+                  <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[140px] h-3.5 text-red-500/60 pointer-events-none" />
+                </div>
+                
+                <div className="space-y-6">
+                  {education.map((edu, idx) => (
+                    <motion.div 
+                      key={edu.id} 
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex justify-between items-start border-l-2 border-dashed border-red-300/30 pl-6 relative py-1"
+                    >
+                      <div className="absolute top-1.5 -left-[6px] w-3 h-3 flex items-center justify-center">
+                        <DoodleCircle className="w-3.5 h-3.5 text-red-500 fill-white" />
+                      </div>
+                      
+                      <div className="space-y-1">
+                        <h3 className="text-base font-bold text-ink font-serif">{edu.school}</h3>
+                        <p className="text-pencil italic text-xs font-serif">{edu.degree}</p>
+                      </div>
+                      <span className="text-xs font-hand font-bold text-pencil bg-gray-100/60 print:bg-white border border-gray-200/30 print:border-none px-2.5 py-0.5 rounded shadow-sm print:shadow-none transform -rotate-1 flex-shrink-0">
+                        {edu.year}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+            </div>
+
+            {/* Sidebar Column - Styled as rotated Sticky Notes themed matching notebooks on screen */}
+            <div className="md:col-span-4 space-y-12">
+              
+              {/* Expertise / Skills Sticky Note */}
+              <motion.section 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="p-6 bg-[#fffdeb] border-2 border-dashed border-[#e6dfbc] rounded-2xl md:rotate-1 hover:rotate-0 transition-transform duration-300 relative shadow-md print:shadow-none print:bg-white print:border-none print:p-0 print:rotate-0"
+              >
+                {/* Visual Shredded Tape Piece - top center */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5.5 bg-white/45 border-x border-t border-gray-300/40 backdrop-blur-[1px] rotate-[1.5deg] shadow-sm print:hidden" style={{ clipPath: 'polygon(3% 0%, 97% 0%, 100% 100%, 0% 100%)' }} />
+                
+                <h2 className="text-lg font-hand font-bold text-ink uppercase tracking-wider mb-5 flex items-center border-b border-[#ebdca5] pb-2 print:border-gray-100">
+                  <Code size={18} className="mr-2 text-pencil" strokeWidth={2.5} />
+                  Expertise
+                </h2>
+                
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill, idx) => (
+                    <motion.span 
+                      key={skill} 
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.03 }}
+                      className="px-2.5 py-1 bg-white/80 border border-gray-200/50 hover:bg-ink hover:text-paper hover:border-ink cursor-default text-ink rounded-lg text-[10px] font-serif font-bold tracking-normal uppercase transition-all duration-200"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.section>
+
+              {/* Interactive Links / Connect Sticky Note */}
+              <motion.section 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="p-6 bg-[#f5f3ff] border-2 border-dashed border-[#ddd8f5] rounded-2xl md:-rotate-1 hover:rotate-0 transition-transform duration-300 relative shadow-md print:shadow-none print:bg-white print:border-none print:p-0 print:rotate-0"
+              >
+                {/* Scotch Tape strip */}
+                <div className="absolute -top-3 left-1/3 w-16 h-5.5 bg-white/45 border-x border-t border-gray-300/40 backdrop-blur-[1px] rotate-[-2deg] shadow-sm print:hidden" style={{ clipPath: 'polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%)' }} />
+                
+                <h2 className="text-lg font-hand font-bold text-ink uppercase tracking-wider mb-5 flex items-center border-b border-[#cecdf3] pb-2 print:border-gray-100">
+                  Connect
+                </h2>
+                
+                <div className="space-y-4 font-serif text-xs">
+                  <div className="p-3 bg-white/70 border border-gray-200/20 rounded-xl relative group">
+                    <p className="font-bold text-ink mb-1 text-[10px] uppercase tracking-wider opacity-60 font-hand">Portfolio Link</p>
+                    <a href="https://vidhi-bhanushali.web.app" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1 font-bold">
+                      vidhibhanushali.design
+                      <ExternalLink size={10} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+                  
+                  <div className="p-3 bg-white/70 border border-gray-200/20 rounded-xl relative group">
+                    <p className="font-bold text-ink mb-1 text-[10px] uppercase tracking-wider opacity-60 font-hand">LinkedIn Profile</p>
+                    <a href="https://linkedin.com/in/vidhi-bhanushali" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1 font-bold">
+                      /in/vidhi-bhanushali
+                      <ExternalLink size={10} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </motion.section>
+
+              {/* Languages Sticky Note */}
+              <motion.section 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="p-6 bg-[#fff1f2] border-2 border-dashed border-[#ffd3d7] rounded-2xl md:rotate-2 hover:rotate-0 transition-transform duration-300 relative shadow-md print:shadow-none print:bg-white print:border-none print:p-0 print:rotate-0"
+              >
+                {/* Visual Tape strip */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5.5 bg-white/45 border-x border-t border-gray-300/40 backdrop-blur-[1px] rotate-[3deg] shadow-sm print:hidden" style={{ clipPath: 'polygon(3% 0%, 97% 0%, 100% 100%, 0% 100%)' }} />
+                
+                <h2 className="text-lg font-hand font-bold text-ink uppercase tracking-wider mb-4 flex items-center border-b border-[#fec5cc] pb-2 print:border-gray-100">
+                  Languages
+                </h2>
+                
+                <div className="space-y-3.5 text-xs font-serif text-pencil">
+                  <div className="flex justify-between items-center border-b border-rose-100/30 pb-1.5">
+                    <span className="font-serif">English</span>
+                    <span className="font-hand font-bold text-ink text-sm bg-white/60 px-2.5 py-0.5 rounded border border-gray-100">Professional</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-rose-100/30 pb-1.5">
+                    <span className="font-serif">Hindi</span>
+                    <span className="font-hand font-bold text-ink text-sm bg-white/60 px-2.5 py-0.5 rounded border border-gray-100">Native</span>
+                  </div>
+                  <div className="flex justify-between items-center pb-0.5">
+                    <span className="font-serif">Gujarati</span>
+                    <span className="font-hand font-bold text-ink text-sm bg-white/60 px-2.5 py-0.5 rounded border border-gray-100">Native</span>
+                  </div>
+                </div>
+              </motion.section>
+
+              {/* QR Code Placeholder for Print (Kept Hidden on Web Screen) */}
+              <section className="hidden print:block pt-4">
+                <div className="border border-dashed border-gray-200 p-4 text-center rounded-xl bg-white">
+                   <p className="text-[9px] uppercase tracking-widest text-gray-400 mb-2 font-serif font-bold">Scan to view digital portfolio</p>
+                   <div className="w-20 h-20 bg-gray-100 mx-auto mb-2 flex items-center justify-center text-[8px] text-gray-300 font-bold border border-gray-200">QR CODE</div>
+                   <p className="text-[10px] text-gray-400 font-serif font-bold">vidhibhanushali.design</p>
+                </div>
+              </section>
+            </div>
           </div>
 
-          {/* Sidebar Column (Expertise & Projects) */}
-          <div className="space-y-10">
-            
-            {/* Expertise Section */}
-            <section>
-              <h2 className="text-lg font-serif font-bold text-[#2c2c2c] uppercase tracking-[0.2em] border-b border-[rgba(44,44,44,0.1)] pb-2 mb-6 flex items-center">
-                <Code size={18} className="mr-3 text-blue-600" />
-                Expertise
-              </h2>
-              <div className="flex flex-wrap gap-1.5">
-                {skills.map((skill, idx) => (
-                  <motion.span 
-                    key={skill} 
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.05 }}
-                    className="px-2 py-1 bg-[rgba(253,251,247,0.6)] border border-[rgba(44,44,44,0.1)] text-[#2c2c2c] rounded text-[10px] font-serif font-bold tracking-tight uppercase"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
-            </section>
-
-            {/* Interactive Links Section */}
-            <section>
-              <h2 className="text-lg font-serif font-bold text-[#2c2c2c] uppercase tracking-[0.2em] border-b border-[rgba(44,44,44,0.1)] pb-2 mb-6">
-                Connect
-              </h2>
-              <div className="space-y-3 font-serif text-xs">
-                <div className="p-3 bg-[rgba(253,251,247,0.3)] border border-[rgba(44,44,44,0.1)] rounded">
-                  <p className="font-bold text-[#2c2c2c] mb-1 text-[10px] uppercase tracking-wider opacity-60">Portfolio</p>
-                  <a href="https://vvidhi-bhanushali.vercel.app/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline flex items-center">
-                    vvidhi-bhanushali.vercel.app
-                    <ExternalLink size={10} className="ml-1" />
-                  </a>
-                </div>
-                <div className="p-3 bg-[rgba(253,251,247,0.3)] border border-[rgba(44,44,44,0.1)] rounded">
-                  <p className="font-bold text-[#2c2c2c] mb-1 text-[10px] uppercase tracking-wider opacity-60">LinkedIn</p>
-                  <a href="https://linkedin.com/in/vidhi-bhanushali" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline flex items-center">
-                    /in/vidhi-bhanushali
-                    <ExternalLink size={10} className="ml-1" />
-                  </a>
-                </div>
-              </div>
-            </section>
-
-            {/* Languages Section */}
-            <section>
-               <h2 className="text-lg font-serif font-bold text-[#2c2c2c] uppercase tracking-[0.2em] border-b border-[rgba(44,44,44,0.1)] pb-2 mb-4">
-                Languages
-              </h2>
-              <div className="space-y-2 text-xs font-serif text-[#555555]">
-                <div className="flex justify-between">
-                  <span>English</span>
-                  <span className="font-bold text-[#2c2c2c]">Professional</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Hindi</span>
-                  <span className="font-bold text-[#2c2c2c]">Native</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Gujarati</span>
-                  <span className="font-bold text-[#2c2c2c]">Native</span>
-                </div>
-              </div>
-            </section>
-
-            {/* QR Code Placeholder for Print */}
-            <section className="hidden print:block pt-6">
-              <div className="border border-dashed border-gray-200 p-4 text-center">
-                 <p className="text-[8px] uppercase tracking-widest text-gray-400 mb-2">Scan to view digital portfolio</p>
-                 <div className="w-16 h-16 bg-gray-100 mx-auto mb-2 flex items-center justify-center text-[6px] text-gray-300">QR CODE</div>
-                 <p className="text-[8px] text-gray-400">vvidhi-bhanushali.vercel.app</p>
-              </div>
-            </section>
-          </div>
-        </div>
-
-        {/* Footer for the PDF page */}
-        <footer className="mt-16 pt-6 border-t border-[rgba(44,44,44,0.1)] text-center text-[8px] text-gray-300 uppercase tracking-widest">
-          References available upon request • Designed & Coded by Vidhi Bhanushali
-        </footer>
-      </motion.div>
+          {/* Footer for the PDF page */}
+          <footer className="mt-16 pt-8 border-t-2 border-dashed border-gray-200 text-center text-[10px] text-gray-400 uppercase tracking-widest font-serif font-bold flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span>References available upon request</span>
+            <span>Designed & Coded by Vidhi Bhanushali</span>
+          </footer>
+        </motion.div>
+      </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
@@ -348,13 +422,17 @@ const Resume: React.FC = () => {
           }
           body {
             background: white !important;
+            color: black !important;
+            font-size: 11pt !important;
           }
           .min-h-screen {
             padding-top: 0 !important;
             padding-bottom: 0 !important;
           }
-          .bg-gray-50 {
+          .bg-paper, .bg-[#faf8f4], .bg-[#fefdfa] {
+            background: white !important;
             background-color: white !important;
+            background-image: none !important;
           }
           .sketch-button, button {
              display: none !important;
