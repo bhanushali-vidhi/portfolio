@@ -346,8 +346,8 @@ const Resume: React.FC = () => {
                 <div className="space-y-4 font-serif text-xs">
                   <div className="p-3 bg-white/70 border border-gray-200/20 rounded-xl relative group">
                     <p className="font-bold text-ink mb-1 text-[10px] uppercase tracking-wider opacity-60 font-hand">Portfolio Link</p>
-                    <a href="https://vidhi-bhanushali.web.app" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1 font-bold">
-                      vidhibhanushali.design
+                    <a href="https://vvidhi-bhanushali.vercel.app/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1 font-bold">
+                      vvidhi-bhanushali.vercel.app
                       <ExternalLink size={10} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                   </div>
