@@ -180,7 +180,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Section 3: Film Strip Gallery */}
-      <section className="mb-32">
+      {/* <section className="mb-32">
         <motion.div 
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -214,7 +214,7 @@ const About: React.FC = () => {
              </motion.div>
            ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Section 4: Chai & Chat */}
       <motion.section 
