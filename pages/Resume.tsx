@@ -231,8 +231,8 @@ const Resume: React.FC = () => {
               <div className="space-y-3 font-serif text-xs">
                 <div className="p-3 bg-[rgba(253,251,247,0.3)] border border-[rgba(44,44,44,0.1)] rounded">
                   <p className="font-bold text-[#2c2c2c] mb-1 text-[10px] uppercase tracking-wider opacity-60">Portfolio</p>
-                  <a href="https://bit.ly/vidhibhanushali" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline flex items-center">
-                    vidhibhanushali.design
+                  <a href="https://vvidhi-bhanushali.vercel.app/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline flex items-center">
+                    vvidhi-bhanushali.vercel.app
                     <ExternalLink size={10} className="ml-1" />
                   </a>
                 </div>
@@ -272,7 +272,7 @@ const Resume: React.FC = () => {
               <div className="border border-dashed border-gray-200 p-4 text-center">
                  <p className="text-[8px] uppercase tracking-widest text-gray-400 mb-2">Scan to view digital portfolio</p>
                  <div className="w-16 h-16 bg-gray-100 mx-auto mb-2 flex items-center justify-center text-[6px] text-gray-300">QR CODE</div>
-                 <p className="text-[8px] text-gray-400">vidhibhanushali.design</p>
+                 <p className="text-[8px] text-gray-400">vvidhi-bhanushali.vercel.app</p>
               </div>
             </section>
           </div>
