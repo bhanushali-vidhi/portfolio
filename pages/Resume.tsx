@@ -139,13 +139,7 @@ const Resume: React.FC = () => {
           <DoodleSpiral className="absolute top-[350px] right-[-40px] w-28 h-28 text-pencil/5 pointer-events-none print:hidden" />
           <DoodleSpiral className="absolute top-[800px] left-[-30px] w-28 h-28 text-pencil/5 pointer-events-none print:hidden" />
           <DoodleStar className="absolute top-8 right-12 w-12 h-12 text-yellow-400/40 animate-float pointer-events-none print:hidden" />
-         
-         {/* Subtle Hand-drawn Note near header */}
-           <div className="absolute right-14 top-24 font-hand text-blue-500/80 text-base rotate-6 print:hidden hidden lg:block select-none max-w-[170px] leading-tight text-center">
-             Currently looking for full-time roles! ✨
-             <DoodleArrow className="w-10 h-10 mx-auto text-blue-400/60 -rotate-[120deg] mt-1" />
-           </div>
-        
+                
         {/* Header Section */}
         <header className="border-b-2 border-[#2c2c2c] pb-8 mb-10 relative">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end">
