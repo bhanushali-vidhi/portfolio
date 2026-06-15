@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Experience, Education } from '../types';
 import { DoodleUnderline, DoodleStar, DoodleArrow, DoodleCircle, DoodleSparkle, DoodleSpiral } from '../components/Doodles';
 
-
 const experiences: Experience[] = [
   {
     id: '1',
@@ -64,7 +63,8 @@ const education: Education[] = [
 const skills = [
   "Figma", "Adobe Creative Suite", "Wireframing", 
   "Prototyping", "User Research", "Visual Design", "Design Systems",
-  "Responsive Design", "A11y (Accessibility)", "Information Architecture"
+  "Responsive Design", "A11y (Accessibility)", "Information Architecture",
+  "HTML/CSS", "React.js"
 ];
 
 // Hand-sketched check bullet
@@ -81,13 +81,14 @@ const Resume: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#faf8f4] pt-24 pb-16 print:p-0 print:bg-white transition-colors duration-500">
+      
       {/* Action Bar (Hidden on Print) */}
       <motion.div 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className="max-w-4xl mx-auto px-6 mb-6 flex justify-between items-center print:hidden"
       >
-        <Link to="/" className="flex items-center text-[#555555] hover:text-[#2c2c2c] font-hand text-lg group">
+        <Link to="/" className="flex items-center text-pencil hover:text-ink font-hand text-lg group">
           <ArrowLeft size={18} className="mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to Work
         </Link>
@@ -95,14 +96,13 @@ const Resume: React.FC = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handlePrint}
-          className="sketch-button flex items-center space-x-2 bg-[#2c2c2c] text-[#fdfbf7] px-5 py-2 font-hand font-bold text-lg shadow-lg"
+          className="sketch-button flex items-center space-x-2 bg-ink text-paper px-5 py-2 font-hand font-bold text-lg shadow-lg"
         >
           <Download size={18} />
           <span>Download PDF</span>
         </motion.button>
       </motion.div>
 
-      
       {/* Outer Notebook Wire Binder Wrapper for Large Screens */}
       <div className="max-w-4xl mx-auto relative px-4 sm:px-8">
         
@@ -119,11 +119,11 @@ const Resume: React.FC = () => {
         </div>
 
         {/* The Sketchbook Theme Resume Sheet */}
-      <motion.div 
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.1 }}
-        className="w-full bg-[#fefdfa] shadow-xl print:shadow-none min-h-[1100px] rounded-r-2xl border-l-[10px] border-l-[#e8e4db] md:border-l-[14px] border-r border-y border-gray-200/50 p-6 sm:p-10 md:py-14 md:pl-24 md:pr-14 print:px-8 print:py-6 print:border-none print:bg-white print:rounded-none relative overflow-hidden"
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="w-full bg-[#fefdfa] shadow-xl print:shadow-none min-h-[1100px] rounded-r-2xl border-l-[10px] border-l-[#e8e4db] md:border-l-[14px] border-r border-y border-gray-200/50 p-6 sm:p-10 md:py-14 md:pl-24 md:pr-14 print:px-8 print:py-6 print:border-none print:bg-white print:rounded-none relative overflow-hidden"
           style={{
             backgroundImage: 'radial-gradient(#ddd 1px, transparent 1px)',
             backgroundSize: '24px 24px',
@@ -139,71 +139,77 @@ const Resume: React.FC = () => {
           <DoodleSpiral className="absolute top-[350px] right-[-40px] w-28 h-28 text-pencil/5 pointer-events-none print:hidden" />
           <DoodleSpiral className="absolute top-[800px] left-[-30px] w-28 h-28 text-pencil/5 pointer-events-none print:hidden" />
           <DoodleStar className="absolute top-8 right-12 w-12 h-12 text-yellow-400/40 animate-float pointer-events-none print:hidden" />
-                
-        {/* Header Section */}
-        <header className="border-b-2 border-[#2c2c2c] pb-8 mb-10 relative">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end">
-            <div className="mb-2 md:mb-0 relative inline-block">
-              <h1 className="text-4xl sm:text-5xl font-serif font-bold text-ink mb-1.5 tracking-tight relative">
+
+
+
+          {/* Header Section */}
+          <header className="border-b-2 border-ink pb-8 mb-10 relative">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+              <div className="mb-2 md:mb-0 relative inline-block">
+                <h1 className="text-4xl sm:text-5xl font-serif font-bold text-ink mb-1.5 tracking-tight relative">
                   Vidhi Bhanushali
                 </h1>
                 <p className="text-2xl font-hand text-blue-600 font-bold tracking-wide relative">
                   Product Designer Intern
                   <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[180px] h-3 text-blue-400/70" />
                 </p>
-            </div>
-            
-            <div className="space-y-1.5 text-left md:text-right text-pencil font-serif text-sm w-full md:w-auto">
-              <div className="flex items-center md:justify-end space-x-2.5">
-                <span className="hover:text-ink transition-colors">vvidhi.design@gmail.com</span>
-                <Mail size={15} className="text-pencil" />
-              </div>
-              <div className="flex items-center md:justify-end space-x-2.5">
-                <span>+91 81693 00611</span>
-                <Phone size={15} className="text-pencil" />
-              </div>
-              <div className="flex items-center md:justify-end space-x-2.5">
-                <span>Mumbai, India</span>
-                <MapPin size={15} className="text-pencil" />
-              </div>
-              <div className="flex items-center md:justify-end space-x-2.5 text-blue-600 font-bold transition-all hover:translate-x-0.5">
-                <a href="https://linkedin.com/in/vidhi-bhanushali" target="_blank" rel="noreferrer" className="hover:underline flex items-center gap-1.5">
-                  linkedin.com/in/vidhi-bhanushali
-                  <ExternalLink size={12} />
-                </a>
-                <Linkedin size={15} className="text-blue-600" />
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-          
-          {/* Main Column (Experience & Education) */}
-          <div className="md:col-span-8 space-y-12 pr-0 md:pr-4">
-            
-            {/* Experience Section */}
-            <section className="relative">
-              <div className="relative inline-block mb-8">
-                <h2 className="text-xl font-hand font-bold text-ink uppercase tracking-wider flex items-center">
-                  <Briefcase size={20} className="mr-3 text-pencil" strokeWidth={2.5} />
-                  Experience
-                </h2>
-                <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[140px] h-3.5 text-blue-500/60 pointer-events-none" />
               </div>
               
-              <div className="space-y-10">
-                {experiences.map((exp, idx) => (
-                  <motion.div 
-                    key={exp.id} 
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="relative pl-6 border-l-2 border-dashed border-pencil/30 group py-1"
-                  >
-                    
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-2 gap-2">
+              <div className="space-y-1.5 text-left md:text-right text-pencil font-serif text-sm w-full md:w-auto">
+                <div className="flex items-center md:justify-end space-x-2.5">
+                  <span className="hover:text-ink transition-colors">vvidhi.design@gmail.com</span>
+                  <Mail size={15} className="text-pencil" />
+                </div>
+                <div className="flex items-center md:justify-end space-x-2.5">
+                  <span>+91 81693 00611</span>
+                  <Phone size={15} className="text-pencil" />
+                </div>
+                <div className="flex items-center md:justify-end space-x-2.5">
+                  <span>Mumbai, India</span>
+                  <MapPin size={15} className="text-pencil" />
+                </div>
+                <div className="flex items-center md:justify-end space-x-2.5 text-blue-600 font-bold transition-all hover:translate-x-0.5">
+                  <a href="https://linkedin.com/in/vidhi-bhanushali" target="_blank" rel="noreferrer" className="hover:underline flex items-center gap-1.5">
+                    linkedin.com/in/vidhi-bhanushali
+                    <ExternalLink size={12} />
+                  </a>
+                  <Linkedin size={15} className="text-blue-600" />
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+            
+            {/* Main Column (Experience & Education) */}
+            <div className="md:col-span-8 space-y-12 pr-0 md:pr-4">
+              
+              {/* Experience Section */}
+              <section className="relative">
+                <div className="relative inline-block mb-8">
+                  <h2 className="text-xl font-hand font-bold text-ink uppercase tracking-wider flex items-center">
+                    <Briefcase size={20} className="mr-3 text-pencil" strokeWidth={2.5} />
+                    Experience
+                  </h2>
+                  <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[140px] h-3.5 text-blue-500/60 pointer-events-none" />
+                </div>
+                
+                <div className="space-y-10">
+                  {experiences.map((exp, idx) => (
+                    <motion.div 
+                      key={exp.id} 
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="relative pl-6 border-l-2 border-dashed border-pencil/30 group py-1"
+                    >
+                      {/* Timeline Bullet (Hand-drawn Doodle Circle) */}
+                      <div className="absolute top-1.5 -left-[10px] w-5 h-5 flex items-center justify-center">
+                        <DoodleCircle className="w-5 h-5 text-blue-500 fill-white" />
+                      </div>
+                      
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-2 gap-2">
                         <h3 className="text-lg font-bold text-ink font-serif hover:text-blue-600 transition-colors">
                           {exp.role}
                         </h3>
