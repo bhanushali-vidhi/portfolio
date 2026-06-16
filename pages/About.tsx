@@ -65,7 +65,7 @@ const About: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="md:col-span-4 sketch-border bg-paper p-4 relative flex flex-col items-center justify-between group overflow-hidden h-[450px]"
+            className="md:col-span-4 sketch-border bg-paper p-4 relative flex flex-col items-center justify-between group overflow-hidden min-h-[420px]"
           >
              <div className="w-full h-2/3 overflow-hidden rounded-lg bg-gray-100 mb-4 border border-ink/10">
                 <img 
@@ -93,7 +93,7 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="md:col-span-8 bg-ink text-paper p-10 rounded-[40px] flex flex-col justify-center relative shadow-xl overflow-hidden min-h-[300px]"
           >
-             <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">Manifesto<span className="text-blue-400 font-hand text-2xl align-top ml-2">(6)</span></h3>
+             <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">Manifesto</h3>
              <p className="text-xl md:text-2xl font-serif leading-relaxed opacity-90">
                "I've always fallen in love with others' work. Visually stunning, but more importantly design that works. It motivates me, wanting to make the most out of myself. Now I'm working towards being that someone, who can inspire someone else the same way others did to me."
              </p>
@@ -105,7 +105,7 @@ const About: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-5 sketch-border bg-paper p-6 flex flex-col justify-between h-[280px] relative"
+            className="md:col-span-5 sketch-border bg-paper p-6 flex flex-col justify-between gap-6 min-h-[260px] relative"
           >
              <div className="flex items-center space-x-4">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center animate-spin-slow">
@@ -135,9 +135,9 @@ const About: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-7 bg-paper p-8 rounded-[30px] border-2 border-dashed border-gray-300 relative h-[280px] flex flex-col"
+            className="md:col-span-7 bg-paper p-8 rounded-[30px] border-2 border-dashed border-gray-300 relative min-h-[260px] flex flex-col"
           >
-             <h3 className="text-2xl font-serif font-bold text-ink mb-6">Tools I love <span className="text-sm font-hand text-pencil ml-1">(7)</span></h3>
+             <h3 className="text-2xl font-serif font-bold text-ink mb-6">Tools I love</h3>
              <div className="flex flex-wrap gap-6 items-center flex-grow">
                 <motion.div whileHover={{ scale: 1.1, rotate: 5 }} className="w-14 h-14 bg-paper sketch-border flex items-center justify-center cursor-pointer">
                    <Figma size={28} />
@@ -162,7 +162,7 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="md:col-span-12 sketch-border bg-paper p-8 relative overflow-hidden"
           >
-             <h3 className="text-3xl font-hand font-bold text-ink mb-8">Services <span className="text-sm text-pencil">(9)</span></h3>
+             <h3 className="text-3xl font-hand font-bold text-ink mb-8">Services</h3>
              <div className="flex flex-wrap gap-3">
                 {services.map((service, idx) => (
                   <motion.span 

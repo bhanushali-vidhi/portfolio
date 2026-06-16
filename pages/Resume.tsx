@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Download, Briefcase, GraduationCap, Code, Mail, Phone, MapPin, Linkedin, ArrowLeft, ExternalLink } from 'lucide-react';
+import { Printer, Briefcase, GraduationCap, Code, Mail, Phone, MapPin, Linkedin, ArrowLeft, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Experience, Education } from '../types';
 import { DoodleUnderline, DoodleStar, DoodleArrow, DoodleCircle, DoodleSparkle, DoodleSpiral } from '../components/Doodles';
@@ -98,8 +98,8 @@ const Resume: React.FC = () => {
           onClick={handlePrint}
           className="sketch-button flex items-center space-x-2 bg-ink text-paper px-5 py-2 font-hand font-bold text-lg shadow-lg"
         >
-          <Download size={18} />
-          <span>Download PDF</span>
+          <Printer size={18} />
+          <span>Print / Save as PDF</span>
         </motion.button>
       </motion.div>
 
@@ -169,8 +169,8 @@ const Resume: React.FC = () => {
                   <MapPin size={15} className="text-pencil" />
                 </div>
                 <div className="flex items-center md:justify-end space-x-2.5 text-blue-600 font-bold transition-all hover:translate-x-0.5">
-                  <a href="https://linkedin.com/in/vidhi-bhanushali" target="_blank" rel="noreferrer" className="hover:underline flex items-center gap-1.5">
-                    linkedin.com/in/vidhi-bhanushali
+                  <a href="https://www.linkedin.com/in/vidhi-manoj-bhanushali/" target="_blank" rel="noreferrer" className="hover:underline flex items-center gap-1.5">
+                    linkedin.com/in/vidhi-manoj-bhanushali
                     <ExternalLink size={12} />
                   </a>
                   <Linkedin size={15} className="text-blue-600" />
@@ -354,8 +354,8 @@ const Resume: React.FC = () => {
                   
                   <div className="p-3 bg-white/70 border border-gray-200/20 rounded-xl relative group">
                     <p className="font-bold text-ink mb-1 text-[10px] uppercase tracking-wider opacity-60 font-hand">LinkedIn Profile</p>
-                    <a href="https://linkedin.com/in/vidhi-bhanushali" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1 font-bold">
-                      /in/vidhi-bhanushali
+                    <a href="https://www.linkedin.com/in/vidhi-manoj-bhanushali/" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 hover:underline flex items-center gap-1 font-bold">
+                      /in/vidhi-manoj-bhanushali
                       <ExternalLink size={10} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                   </div>

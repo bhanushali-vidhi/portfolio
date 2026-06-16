@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="mt-4 md:mt-0 flex space-x-6 font-hand text-lg">
           {/* <a href="#" className="hover:text-ink hover:underline decoration-wavy transition-colors">Twitter</a>
             <a href="#" className="hover:text-ink hover:underline decoration-wavy transition-colors">Instagram</a> */}
-            <a href="#" className="hover:text-ink hover:underline decoration-wavy transition-colors">GitHub</a>
+            <a href="https://github.com/bhanushali-vidhi" target="_blank" rel="noopener noreferrer" className="hover:text-ink hover:underline decoration-wavy transition-colors">GitHub</a>
         </div>
       </div>
     </footer>
