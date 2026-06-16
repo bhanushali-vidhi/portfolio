@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Printer, Briefcase, GraduationCap, Code, Mail, Phone, MapPin, Linkedin, ArrowLeft, ExternalLink } from 'lucide-react';
+import { Download, Briefcase, GraduationCap, Code, Mail, Phone, MapPin, Linkedin, ArrowLeft, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Experience, Education } from '../types';
 import { DoodleUnderline, DoodleStar, DoodleArrow, DoodleCircle, DoodleSparkle, DoodleSpiral } from '../components/Doodles';
@@ -75,10 +75,6 @@ const CheckDoodle = () => (
 );
 
 const Resume: React.FC = () => {
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <div className="min-h-screen bg-[#faf8f4] pt-24 pb-16 print:p-0 print:bg-white transition-colors duration-500">
       
@@ -92,15 +88,16 @@ const Resume: React.FC = () => {
           <ArrowLeft size={18} className="mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to Work
         </Link>
-        <motion.button 
+        <motion.a
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={handlePrint}
+          href="/Vidhi-Bhanushali-Resume.pdf"
+          download="Vidhi-Bhanushali-Resume.pdf"
           className="sketch-button flex items-center space-x-2 bg-ink text-paper px-5 py-2 font-hand font-bold text-lg shadow-lg"
         >
-          <Printer size={18} />
-          <span>Print / Save as PDF</span>
-        </motion.button>
+          <Download size={18} />
+          <span>Download PDF</span>
+        </motion.a>
       </motion.div>
 
       {/* Outer Notebook Wire Binder Wrapper for Large Screens */}
