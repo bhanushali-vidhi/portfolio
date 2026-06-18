@@ -5,7 +5,7 @@ import { ArrowLeft, Monitor, Layers, Zap, ExternalLink, Users, Pencil, Code2 } f
 import { motion } from 'motion/react';
 import { CaseStudyDetail as CaseStudyDetailType } from '../types';
 // Added DoodleSparkle to the import list
-import { DoodleUnderline, DoodleStar, DoodleArrow, DoodleCircle, DoodleSparkle } from '../components/Doodles';
+import { DoodleUnderline, DoodleStar, DoodleArrow, DoodleCircle, DoodleSparkle, DoodleSpiral } from '../components/Doodles';
 
 // --- SVG Components for Workflows ---
 
