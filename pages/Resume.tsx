@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Download, Briefcase, GraduationCap, Code, Mail, Phone, MapPin, Linkedin, ArrowLeft, ExternalLink } from 'lucide-react';
+import { Download, Briefcase, GraduationCap, Code, Mail, Phone, MapPin, Linkedin, ArrowLeft, ExternalLink, FolderKanban, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Experience, Education } from '../types';
 import { DoodleUnderline, DoodleStar, DoodleArrow, DoodleCircle, DoodleSparkle, DoodleSpiral } from '../components/Doodles';
@@ -10,47 +10,78 @@ const experiences: Experience[] = [
     id: '1',
     role: 'Product Designer Intern',
     company: 'Deloitte India',
-    period: 'Sep 2025 – Now',
+    period: 'Sept 2025 – Present',
     description: [
-      'Conducted user research and identified pain points to enhance automation products for internal users.',
-      'Introduced a "Critical Fields First" layout and auto-flagging features, balancing speed and audit accuracy.',
-      'Increased document processing speed by 40%, reduced error rates by up to 35%, and cut operator training time by 50%.',
-      'Collaborated with developers and product managers to optimize large-scale system workflows.'
+      'Sole Product Designer on a cross-functional team of 5 (Full-Stack Engineers, ML Engineer, Solutions Architect) — driving end-to-end design for enterprise automation.',
+      'Drove a 95% reduction in document processing time (20 min → <60 sec), ~35% drop in error rates, and 50% cut in operator training time — via a "Critical Fields First" layout and AI-driven auto-flagging.',
+      'Designed 10+ production-ready screens and workflows for the VW Automation Project, translating complex business requirements into operator-friendly interfaces.',
+      'Contributed to enterprise solutions used by 5 global automotive brands — Volkswagen, Škoda, Audi, Porsche, Mercedes-Benz — plus internal tooling for Bajaj and Shree Cement.',
+      'Conducted usability sessions with internal operators across multiple modules, surfacing friction points that shaped the redesigned audit flows.',
+      'Built lightweight Python components during implementation to keep design intent intact through to production.'
     ]
   },
   {
     id: '2',
     role: 'UI/UX Designer Intern',
     company: 'FashionTV / FTV India Private Limited',
-    period: 'Jun 2025 – Aug 2025',
+    period: 'Jun 2025 – Sept 2025',
     description: [
-      'Designed premium user interfaces for FashionTV’s digital platforms, focusing on luxury aesthetics.',
-      'Redesigned key website and mobile app sections to improve visual hierarchy and accessibility.',
-      'Led design for projects including homepage revamp, FTV+ subscription flow, and event pages.',
-      'Collaborated closely with design leads to align design with global brand campaigns.'
+      'Designed the component library and led developer handoff for F Real Estate by FTV — a B2B brand-licensing platform now LIVE at frealestatebyftv.in, serving 5 developer-client brands (Merlin Group, Terra Casa, Danube, SBP, Glenworld).',
+      'Shipped 9 page templates from a reusable Figma component system; owned 4 templates end-to-end (Press, Project Detail, Statistics, B2B Contact). Senior designer reviewed and signed off.',
+      'Front-loaded specs, breakpoints, and edge-case documentation — keeping most templates to a single review cycle through to production.',
+      'Contributed UI to the FTV+ subscription flow and homepage revamp under brand-led creative direction.'
     ]
   },
   {
     id: '3',
-    role: 'UI/UX Designer Intern',
+    role: 'UI/UX Designer Intern → Junior UI/UX Designer',
     company: 'Ocufox Technologies Pvt. Ltd.',
-    period: 'Sep 2024 – Jan 2025',
+    period: 'Sept 2024 – Jan 2025',
     description: [
-      'Led end-to-end redesign of Ocufox company website, improving visual consistency and modernizing brand identity.',
-      'Designed the full website for parent company Green-2-Green, ensuring consistent design language.',
-      'Improved internal design workflow by establishing component libraries and auto-layout systems in Figma.',
-      'Streamlined developer handoff by creating clear specs and annotations, reducing queries by ~40%.',
-      'Accelerated design-to-development handoff cycle by 20-30% through organized Figma frameworks.'
+      'Promoted from Intern to Junior UI/UX Designer based on shipped contributions.',
+      'Led end-to-end redesign of two brand websites — Ocufox and parent company Green-2-Green — modernizing visual identity across both.',
+      'Built a Figma component library and auto-layout system; authored the team’s default handoff specs and annotation patterns.',
+      'Worked closely with developers to ensure pixel-perfect implementation and smooth handoffs.'
     ]
+  }
+];
+
+interface Project {
+  id: string;
+  title: string;
+  meta: string;
+  description: string;
+  link?: string;
+}
+
+const projects: Project[] = [
+  {
+    id: 'p1',
+    title: 'F Real Estate by FashionTV',
+    meta: 'Live · frealestatebyftv.in',
+    description: 'B2B brand-licensing platform. 9 page templates, 5 developer-client brands.',
+    link: 'https://frealestatebyftv.in/'
+  },
+  {
+    id: 'p2',
+    title: 'Document Verification System',
+    meta: 'Deloitte · case study',
+    description: 'AI-driven workflow reducing 20-min manual checks to under 60 seconds.'
+  },
+  {
+    id: 'p3',
+    title: 'Groomify',
+    meta: 'L’Oréal Brandstorm 2025 — Competition Submission',
+    description: 'Real-time grooming simulation prototype reframing the brief from “styling app” to “confidence tool.” Did not advance past initial round.'
   }
 ];
 
 const education: Education[] = [
   {
     id: '1',
-    degree: 'B.Tech in Computer Engineering',
+    degree: 'B.Tech in Computer Engineering · GPA 9.42 / 10',
     school: 'University of Mumbai',
-    year: '2022 – 2026 (Expected)'
+    year: '2022 – June 2026 (Expected)'
   },
   {
     id: '2',
@@ -60,11 +91,10 @@ const education: Education[] = [
   }
 ];
 
-const skills = [
-  "Figma", "Adobe Creative Suite", "Wireframing", 
-  "Prototyping", "User Research", "Visual Design", "Design Systems",
-  "Responsive Design", "A11y (Accessibility)", "Information Architecture",
-  "HTML/CSS", "React.js"
+const skillsGrouped = [
+  { label: 'Design', items: ['Figma', 'Adobe Creative Suite', 'Miro', 'Notion', 'Auto-Layout', 'Variants', 'Prototyping'] },
+  { label: 'Methods', items: ['Design Systems', 'Developer Handoff', 'User Research', 'Information Architecture', 'Accessibility (WCAG)', 'Stakeholder Mgmt'] },
+  { label: 'Code', items: ['React', 'HTML/CSS', 'JavaScript', 'Python', 'Git'] },
 ];
 
 // Hand-sketched check bullet
@@ -147,8 +177,8 @@ const Resume: React.FC = () => {
                   Vidhi Bhanushali
                 </h1>
                 <p className="text-2xl font-hand text-blue-600 font-bold tracking-wide relative">
-                  Product Designer Intern
-                  <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[180px] h-3 text-blue-400/70" />
+                  Product Designer · UI/UX · Computer Engineer
+                  <DoodleUnderline className="absolute -bottom-2.5 left-0 w-full h-3 text-blue-400/70" />
                 </p>
               </div>
               
@@ -178,9 +208,23 @@ const Resume: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
             
-            {/* Main Column (Experience & Education) */}
+            {/* Main Column (Summary, Experience, Projects, Education) */}
             <div className="md:col-span-8 space-y-12 pr-0 md:pr-4">
-              
+
+              {/* Summary Section */}
+              <section className="relative">
+                <div className="relative inline-block mb-5">
+                  <h2 className="text-xl font-hand font-bold text-ink uppercase tracking-wider flex items-center">
+                    <Sparkles size={18} className="mr-3 text-pencil" strokeWidth={2.5} />
+                    Summary
+                  </h2>
+                  <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[120px] h-3.5 text-yellow-500/60 pointer-events-none" />
+                </div>
+                <p className="text-xs text-pencil leading-relaxed font-serif">
+                  Final-year Computer Engineering student and Product Designer with three internships across enterprise (Deloitte) and consumer (FashionTV) products. Sole designer on Deloitte’s VW Automation team, designing for global automotive brands. Recently shipped <strong className="text-ink">F Real Estate by FashionTV</strong> — a live B2B brand-licensing platform — leading the component system and developer handoff. Comfortable across the full stack: Figma to React.
+                </p>
+              </section>
+
               {/* Experience Section */}
               <section className="relative">
                 <div className="relative inline-block mb-8">
@@ -223,7 +267,7 @@ const Resume: React.FC = () => {
                         {exp.description.map((bullet, bIdx) => {
                           // Make high-craft metrics highlight
                           let highlightedText: React.ReactNode = bullet;
-                          if (bullet.includes("40%") || bullet.includes("35%") || bullet.includes("50%") || bullet.includes("40%")) {
+                          if (/\d+%/.test(bullet)) {
                             // Substring and wraps metrics in sketchy circled components
                             highlightedText = (
                               <span>
@@ -255,6 +299,46 @@ const Resume: React.FC = () => {
                 </div>
               </section>
 
+              {/* Selected Projects Section */}
+              <section className="relative pt-4">
+                <div className="relative inline-block mb-8">
+                  <h2 className="text-xl font-hand font-bold text-ink uppercase tracking-wider flex items-center">
+                    <FolderKanban size={20} className="mr-3 text-pencil" strokeWidth={2.5} />
+                    Selected Projects
+                  </h2>
+                  <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[180px] h-3.5 text-blue-500/60 pointer-events-none" />
+                </div>
+
+                <div className="space-y-5">
+                  {projects.map((p, idx) => (
+                    <motion.div
+                      key={p.id}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.08 }}
+                      className="relative pl-6 border-l-2 border-dashed border-blue-300/40 py-1"
+                    >
+                      <div className="absolute top-1.5 -left-[6px] w-3 h-3 flex items-center justify-center">
+                        <DoodleCircle className="w-3.5 h-3.5 text-blue-500 fill-white" />
+                      </div>
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1 gap-1">
+                        <h3 className="text-base font-bold text-ink font-serif">
+                          {p.link ? (
+                            <a href={p.link} target="_blank" rel="noreferrer" className="hover:text-blue-600 inline-flex items-center gap-1.5">
+                              {p.title}
+                              <ExternalLink size={12} className="opacity-70" />
+                            </a>
+                          ) : p.title}
+                        </h3>
+                        <span className="text-[10px] font-hand font-bold text-blue-600 italic">{p.meta}</span>
+                      </div>
+                      <p className="text-xs text-pencil font-serif leading-relaxed">{p.description}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+
               {/* Education Section */}
               <section className="relative pt-4">
                 <div className="relative inline-block mb-8">
@@ -267,8 +351,8 @@ const Resume: React.FC = () => {
                 
                 <div className="space-y-6">
                   {education.map((edu, idx) => (
-                    <motion.div 
-                      key={edu.id} 
+                    <motion.div
+                      key={edu.id}
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -278,7 +362,7 @@ const Resume: React.FC = () => {
                       <div className="absolute top-1.5 -left-[6px] w-3 h-3 flex items-center justify-center">
                         <DoodleCircle className="w-3.5 h-3.5 text-red-500 fill-white" />
                       </div>
-                      
+
                       <div className="space-y-1">
                         <h3 className="text-base font-bold text-ink font-serif">{edu.school}</h3>
                         <p className="text-pencil italic text-xs font-serif">{edu.degree}</p>
@@ -288,6 +372,41 @@ const Resume: React.FC = () => {
                       </span>
                     </motion.div>
                   ))}
+                </div>
+              </section>
+
+              {/* Leadership & Activities Section */}
+              <section className="relative pt-4">
+                <div className="relative inline-block mb-6">
+                  <h2 className="text-xl font-hand font-bold text-ink uppercase tracking-wider flex items-center">
+                    <Sparkles size={18} className="mr-3 text-pencil" strokeWidth={2.5} />
+                    Leadership & Activities
+                  </h2>
+                  <DoodleUnderline className="absolute -bottom-2.5 left-0 w-[200px] h-3.5 text-yellow-500/60 pointer-events-none" />
+                </div>
+
+                <div className="space-y-4">
+                  <div className="pl-6 border-l-2 border-dashed border-yellow-300/40 relative py-1">
+                    <div className="absolute top-1.5 -left-[6px] w-3 h-3 flex items-center justify-center">
+                      <DoodleCircle className="w-3.5 h-3.5 text-yellow-500 fill-white" />
+                    </div>
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-1 mb-1">
+                      <h3 className="text-sm font-bold text-ink font-serif">Founder & Digital Media Manager · CodeAI KJSIT</h3>
+                      <span className="text-[10px] font-hand font-bold text-pencil italic">2023 – Present</span>
+                    </div>
+                    <p className="text-xs text-pencil font-serif leading-relaxed">
+                      Founded the campus AI/coding committee. Designed brand identity and built the committee website. Manage digital presence across events.
+                    </p>
+                  </div>
+                  <div className="pl-6 border-l-2 border-dashed border-yellow-300/40 relative py-1">
+                    <div className="absolute top-1.5 -left-[6px] w-3 h-3 flex items-center justify-center">
+                      <DoodleCircle className="w-3.5 h-3.5 text-yellow-500 fill-white" />
+                    </div>
+                    <h3 className="text-sm font-bold text-ink font-serif">Performer · Gajashree Dhol Tasha Dhwaj Pathak</h3>
+                    <p className="text-xs text-pencil font-serif leading-relaxed">
+                      Traditional drumming ensemble — performed for audiences of 1,500+.
+                    </p>
+                  </div>
                 </div>
               </section>
             </div>
@@ -310,18 +429,25 @@ const Resume: React.FC = () => {
                   Expertise
                 </h2>
                 
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, idx) => (
-                    <motion.span 
-                      key={skill} 
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.03 }}
-                      className="px-2.5 py-1 bg-white/80 border border-gray-200/50 hover:bg-ink hover:text-paper hover:border-ink cursor-default text-ink rounded-lg text-[10px] font-serif font-bold tracking-normal uppercase transition-all duration-200"
-                    >
-                      {skill}
-                    </motion.span>
+                <div className="space-y-4">
+                  {skillsGrouped.map((group) => (
+                    <div key={group.label}>
+                      <p className="font-hand text-[11px] uppercase tracking-widest text-pencil mb-2">{group.label}</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {group.items.map((skill, idx) => (
+                          <motion.span
+                            key={skill}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.02 }}
+                            className="px-2 py-0.5 bg-white/80 border border-gray-200/50 hover:bg-ink hover:text-paper hover:border-ink cursor-default text-ink rounded-md text-[9.5px] font-serif font-bold tracking-normal uppercase transition-all duration-200"
+                          >
+                            {skill}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </motion.section>

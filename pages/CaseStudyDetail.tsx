@@ -217,8 +217,8 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
     description: 'Designing for decisions people are afraid to make. A real-time grooming simulation that reduces uncertainty.',
     imageUrl: '/groomify.png',
     link: '#',
-    client: 'Personal Project',
-    year: '2024',
+    client: 'L’Oréal Brandstorm 2025',
+    year: '2025',
     role: 'Product Designer',
     tools: ['Figma', 'AR Simulation', 'User Research'],
     challenge: 'Grooming decisions are irreversible. Users avoid experimentation because they cannot visualize the outcome on themselves, leading to "guesswork" and regret.',
@@ -458,6 +458,19 @@ const CaseStudyDetail: React.FC = () => {
           >
             <p className="text-sm font-serif italic text-pencil">
               <strong>Disclaimer:</strong> This project is under Non-Disclosure Agreement. Below is a brief insight into the process and outcomes.
+            </p>
+          </motion.div>
+        )}
+
+        {study.id === '2' && (
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="bg-blue-500/5 border-2 border-dashed border-blue-300/40 p-4 rounded-lg mb-8 transform rotate-1"
+          >
+            <p className="text-sm font-serif italic text-pencil">
+              <strong>Note:</strong> Submitted to L’Oréal Brandstorm 2025 — a global student innovation challenge. The prototype was developed for the initial round; we did not advance to the next stage. The case study below captures the product thinking and research that drove the concept.
             </p>
           </motion.div>
         )}
