@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vidhi Bhanushali — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:    #1a1a1a;
+    --body:   #2c2c2c;
+    --muted:  #5a5a5a;
+    --rule:   #d9d4cb;
+    --accent: #2e3a8c;
+    --paper:  #ffffff;
+  }
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--body);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 9pt;
+    line-height: 1.38;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 9mm 14mm 6mm;
+  }
+  /* HEADER */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    padding-bottom: 7px;
+    border-bottom: 1.2px solid var(--ink);
+  }
+  h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1;
+  }
+  .role-line {
+    font-size: 9.5pt;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+  .contact {
+    text-align: right;
+    font-size: 8.2pt;
+    color: var(--muted);
+    line-height: 1.5;
+    flex-shrink: 0;
+  }
+  .contact a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .contact .first { color: var(--ink); font-weight: 500; }
+  /* SUMMARY */
+  .summary {
+    margin-top: 6px;
+    font-size: 8.7pt;
+    color: var(--body);
+    line-height: 1.4;
+  }
+  .summary strong { color: var(--ink); font-weight: 600; }
+  /* SECTIONS */
+  section.block {
+    margin-top: 6px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h2 {
+    font-size: 7.8pt;
+    font-weight: 700;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin: 0 0 4px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--rule);
+  }
+  /* EXPERIENCE ITEM */
+  .role {
+    margin-bottom: 4px;
+  }
+  .role:last-child { margin-bottom: 0; }
+  .role-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 1px;
+  }
+  .role-title {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .role-title .company {
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .role-meta {
+    font-size: 7.8pt;
+    color: var(--muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .role-loc {
+    font-size: 7.8pt;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 3px;
+  }
+  ul.bullets {
+    margin: 0;
+    padding-left: 11px;
+    list-style: none;
+  }
+  ul.bullets li {
+    position: relative;
+    padding-left: 9px;
+    margin-bottom: 0.5px;
+    font-size: 8.5pt;
+    color: var(--body);
+    line-height: 1.34;
+  }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5.5px;
+    width: 3px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  ul.bullets li strong { color: var(--ink); font-weight: 600; }
+  ul.bullets li a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  ul.bullets li.link-line {
+    margin-top: 1px;
+    font-size: 8.2pt;
+  }
+  ul.bullets li.link-line::before { display: none; }
+  /* PROJECTS */
+  .project {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 3px;
+  }
+  .project:last-child { margin-bottom: 0; }
+  .project-main {
+    flex: 1;
+  }
+  .project-title {
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .project-desc {
+    font-size: 8.5pt;
+    color: var(--body);
+    margin-top: 0;
+    line-height: 1.4;
+  }
+  .project-meta {
+    font-size: 7.8pt;
+    color: var(--accent);
+    font-weight: 500;
+    white-space: nowrap;
+    font-style: italic;
+  }
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 3px 14px;
+    font-size: 8.7pt;
+    line-height: 1.4;
+  }
+  .skills-grid dt {
+    font-weight: 600;
+    color: var(--ink);
+    text-transform: uppercase;
+    font-size: 7.8pt;
+    letter-spacing: 0.08em;
+    padding-top: 1px;
+  }
+  .skills-grid dd {
+    margin: 0;
+    color: var(--body);
+  }
+  /* EDUCATION */
+  .edu {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .edu-main { font-size: 8.8pt; }
+  .edu-school { font-weight: 600; color: var(--ink); }
+  .edu-degree { color: var(--body); }
+  .edu-meta { font-size: 7.8pt; color: var(--muted); white-space: nowrap; }
+  /* ACTIVITIES */
+  .activities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+  }
+  .activity {
+    font-size: 8.6pt;
+    line-height: 1.36;
+  }
+  .activity strong { color: var(--ink); font-weight: 600; }
+  .activity .meta { color: var(--muted); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>Vidhi Bhanushali</h1>
+      <div class="role-line">Product Designer · UI/UX · Computer Engineer</div>
+    </div>
+    <div class="contact">
+      <div class="first">vvidhi.design@gmail.com</div>
+      <div>+91 81693 00611 · Mumbai, India</div>
+      <div><a href="https://vvidhi-bhanushali.vercel.app">vvidhi-bhanushali.vercel.app</a></div>
+      <div><a href="https://www.linkedin.com/in/vidhi-manoj-bhanushali/">linkedin.com/in/vidhi-manoj-bhanushali</a></div>
+      <div><a href="https://github.com/bhanushali-vidhi">github.com/bhanushali-vidhi</a></div>
+    </div>
+  </header>
+
+  <p class="summary">
+    Final-year Computer Engineering student and Product Designer with three internships across enterprise (<strong>Deloitte</strong>) and consumer (<strong>FashionTV</strong>) products. Sole designer on Deloitte's VW Automation team, designing for global automotive brands. Recently shipped <strong>F Real Estate by FashionTV</strong> — a live B2B brand-licensing platform — leading the component system and developer handoff. Comfortable across the full stack: Figma to React.
+  </p>
+
+  <section class="block">
+    <h2>Experience</h2>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">Product Designer Intern · <span class="company">Deloitte India</span></div>
+        <div class="role-meta">Sept 2025 — Present</div>
+      </div>
+      <div class="role-loc">Mumbai, India · On-site</div>
+      <ul class="bullets">
+        <li>Sole Product Designer on a cross-functional team of <strong>5</strong> (Full-Stack Engineers, ML Engineer, Solutions Architect) — driving end-to-end design for enterprise automation.</li>
+        <li>Drove a <strong>95% reduction</strong> in document processing time (20 min → &lt;60 sec), <strong>~35%</strong> drop in error rates, and <strong>50%</strong> cut in operator training time — via a "Critical Fields First" layout and AI-driven auto-flagging.</li>
+        <li>Designed <strong>10+</strong> production-ready screens and workflows for the VW Automation Project, translating complex business requirements into operator-friendly interfaces.</li>
+        <li>Contributed to enterprise solutions used by <strong>5 global automotive brands</strong> — Volkswagen, Škoda, Audi, Porsche, Mercedes-Benz — plus internal tooling for Bajaj and Shree Cement.</li>
+        <li>Conducted usability sessions with internal operators across multiple modules, surfacing friction points that shaped the audit flows.</li>
+        <li>Built lightweight Python components during implementation to keep design intent intact through to production.</li>
+        <li class="link-line"><a href="https://vvidhi-bhanushali.vercel.app/#/work/1">→ Case study</a></li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">UI/UX Designer Intern · <span class="company">FashionTV India</span></div>
+        <div class="role-meta">Jun 2025 — Sept 2025</div>
+      </div>
+      <div class="role-loc">Mumbai, India · On-site</div>
+      <ul class="bullets">
+        <li>Designed the component library and led developer handoff for <strong>F Real Estate by FTV</strong> — a B2B brand-licensing platform now <strong>LIVE at <a href="https://frealestatebyftv.in">frealestatebyftv.in</a></strong>, serving 5 developer-client brands (Merlin Group, Terra Casa, Danube, SBP, Glenworld).</li>
+        <li>Shipped <strong>9 page templates</strong> from a reusable Figma component system; owned <strong>4 templates</strong> end-to-end (Press, Project Detail, Statistics, B2B Contact). Senior designer reviewed and signed off.</li>
+        <li>Front-loaded specs, breakpoints, and edge-case documentation — keeping most templates to a <strong>single review cycle</strong> through to production.</li>
+        <li>Contributed UI to the FTV+ subscription flow and homepage revamp under brand-led direction.</li>
+        <li class="link-line"><a href="https://frealestatebyftv.in">→ Live site</a> · <a href="https://vvidhi-bhanushali.vercel.app/#/work/3">Case study</a></li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-title">UI/UX Designer Intern → Junior UI/UX Designer · <span class="company">Ocufox Technologies</span></div>
+        <div class="role-meta">Sept 2024 — Jan 2025</div>
+      </div>
+      <div class="role-loc">Mumbai, India · On-site</div>
+      <ul class="bullets">
+        <li><strong>Promoted</strong> from Intern to Junior UI/UX Designer based on shipped contributions.</li>
+        <li>Led end-to-end redesign of two brand websites — Ocufox and parent company Green-2-Green — modernizing visual identity across both.</li>
+        <li>Built a Figma component library and auto-layout system; authored the team's default handoff specs and annotation patterns.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Selected Projects</h2>
+
+    <div class="project">
+      <div class="project-main">
+        <div class="project-title">F Real Estate by FashionTV</div>
+        <div class="project-desc">B2B brand-licensing platform. 9 page templates, 5 developer-client brands.</div>
+      </div>
+      <div class="project-meta">Live · frealestatebyftv.in</div>
+    </div>
+
+    <div class="project">
+      <div class="project-main">
+        <div class="project-title">Document Verification System</div>
+        <div class="project-desc">AI-driven workflow reducing 20-min manual checks to under 60 seconds.</div>
+      </div>
+      <div class="project-meta">Deloitte · case study</div>
+    </div>
+
+    <div class="project">
+      <div class="project-main">
+        <div class="project-title">Groomify</div>
+        <div class="project-desc">Real-time grooming simulation prototype reframing the brief from "styling app" to "confidence tool." Did not advance past initial round.</div>
+      </div>
+      <div class="project-meta">L'Oréal Brandstorm 2025</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Skills</h2>
+    <dl class="skills-grid">
+      <dt>Design</dt>
+      <dd>Figma · Adobe Creative Suite · Miro · Notion · Auto-Layout · Variants · Prototyping</dd>
+      <dt>Methods</dt>
+      <dd>Design Systems · Developer Handoff · User Research · Information Architecture · Accessibility (WCAG) · Stakeholder Management</dd>
+      <dt>Code</dt>
+      <dd>React · HTML/CSS · JavaScript · Python · Git</dd>
+    </dl>
+  </section>
+
+  <section class="block">
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="edu-main">
+        <span class="edu-school">University of Mumbai</span> — <span class="edu-degree">B.Tech in Computer Engineering · GPA 9.42 / 10</span>
+      </div>
+      <div class="edu-meta">2022 — Jun 2026 (Expected)</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Leadership &amp; Activities</h2>
+    <div class="activities-grid">
+      <div class="activity">
+        <strong>Founder · CodeAI KJSIT</strong> <span class="meta">2023 — Present.</span>
+        Founded the campus AI/coding committee. Designed brand identity and built the committee website.
+      </div>
+      <div class="activity">
+        <strong>Performer · Gajashree Dhol Tasha Dhwaj Pathak.</strong>
+        Traditional drumming ensemble — performed for audiences of <strong>1,500+</strong>.
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
