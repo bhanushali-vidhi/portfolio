@@ -44,4 +44,13 @@ export interface CaseStudyDetail extends CaseStudy {
   testing?: string[];
   futureScope?: string[];
   reflection?: string;
+  liveUrl?: string;
+  teamSize?: { designers: number; developers: number };
+  ownership?: string[];
+  bottlenecks?: string[];
+  componentsCount?: number;
+  handoffPractices?: string[];
+  sectionsOwned?: { title: string; description: string; image: string; note: string }[];
+  statsBlock?: { value: string; label: string }[];
+  brandsOnboarded?: string[];
 }

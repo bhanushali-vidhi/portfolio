@@ -21,6 +21,14 @@ const caseStudies: CaseStudy[] = [
     description: 'Designing for decisions people are afraid to make. A real-time grooming simulation that reduces uncertainty.',
     imageUrl: '/groomify.png',
     link: '#'
+  },
+  {
+    id: '3',
+    title: 'F Real Estate by FashionTV',
+    category: 'Design Systems × Dev Handoff',
+    description: 'Designing FashionTV’s first luxury real-estate platform. 9 page templates, 5 developer brands, one component library. Live and shipping.',
+    imageUrl: '/f-real-estate-hero.jpg',
+    link: '#'
   }
 ];
 

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Monitor, Layers, Zap } from 'lucide-react';
+import { ArrowLeft, Monitor, Layers, Zap, ExternalLink, Users, Pencil, Code2 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CaseStudyDetail as CaseStudyDetailType } from '../types';
 // Added DoodleSparkle to the import list
@@ -255,6 +255,98 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
     testing: ["Do users trust the simulation?", "Do they actually use it before haircuts?", "Does it reduce regret?"],
     futureScope: ["AI-based recommendations", "Barber integration", "Personalized grooming history"],
     reflection: "I started with a styling idea. But it turned out to be a confidence problem. Users don’t need more options—they need certainty. Good design reduces risk, not just effort. The real problem often lies in what users avoid, not what they say."
+  },
+
+  '3': {
+    id: '3',
+    title: 'F Real Estate by FashionTV',
+    category: 'Design Systems × Dev Handoff',
+    description: 'Designing FashionTV’s first luxury real-estate platform — a B2B brand-licensing site connecting global developers to the FTV brand. Live across 9 page templates.',
+    imageUrl: '/f-real-estate-hero.jpg',
+    link: 'https://frealestatebyftv.in/',
+    liveUrl: 'https://frealestatebyftv.in/',
+    client: 'FashionTV India',
+    year: 'Jun 2025 – Aug 2025',
+    role: 'UI/UX Designer Intern · Component Design + Dev Handoff Lead',
+    tools: ['Figma', 'Auto-Layout', 'Variants', 'Notion'],
+    teamSize: { designers: 2, developers: 3 },
+    ownership: [
+      'Built the reusable Figma component library — 24 components × 3 breakpoints — that powered all 9 templates.',
+      'Designed major sections end-to-end: Press taxonomy, Project Detail, Past Events, Statistics block, and the B2B Contact form. Senior designer reviewed and signed off.',
+      'Owned developer handoff solo — annotated specs, edge cases, breakpoint behavior, twice-weekly Figma walkthroughs, and PR-preview reviews before merge.',
+      'Acted as the bridge between design and engineering — my Computer Engineering background meant I could read the React, spot spec drift, and fix it in Figma instead of escalating.'
+    ],
+    challenge: 'FashionTV was launching a new B2B vertical — licensing the FTV brand to luxury real-estate developers across India and the UAE. The site had to convince three audiences in one tab: developers evaluating FTV as a co-brand for ₹500M+ projects, investors browsing curated luxury properties, and press scanning for credibility. One site, one navigation, one visual language — three completely different intents.',
+    approach: 'We mapped the audiences first, the pages second. Press became the trust-building moment, not a footer afterthought. The Project Detail template was built to scale from 5 client brands to 20+ without re-architecture. Every page assembled itself from a single 24-component library, which is what made the dev handoff fast.',
+    solution: 'A 9-template B2B platform with a shared component system, a press section that doubles as the credibility engine, and a contact form that pre-qualifies leads by intent (developer vs. investor vs. licensee).',
+    bottlenecks: [
+      'No existing IA — content for 5+ developer clients had to coexist without diluting any one brand.',
+      'Press credibility was the critical conversion lever, but had no home in the original brief.',
+      'The contact form had to qualify B2B intent (developer / investor / licensee) at submission, not after.',
+      'Two designers + three developers — handoff drift was the real risk, not visual polish.'
+    ],
+    componentsCount: 24,
+    handoffPractices: [
+      'Annotated spacing tokens (4 / 8 / 12 / 16 / 24 / 32 / 48) on every component.',
+      'Hover, active, and disabled states drawn explicitly — no "figure it out" gaps.',
+      'Responsive breakpoints at 1440 / 1024 / 768 / 375, with reflow callouts.',
+      'Edge cases written into the file (e.g., "Press card with 0 articles → hide section, don\'t render empty grid").',
+      'Twice-weekly Figma walkthroughs at standup; PR-preview review before any merge.'
+    ],
+    sectionsOwned: [
+      {
+        title: 'Press as a Credibility Engine',
+        description: 'A filterable press grid (All / Merlin / Terra Casa / Danube / SBP / Glenworld) that surfaces real coverage — Times of India, Newstime — exactly where developers expect proof. Press wasn\'t a footer afterthought; it became the conversion moment.',
+        image: '/f-re-press.png',
+        note: 'For a B2B brand-licensing site, third-party press beats first-party copy. Always.'
+      },
+      {
+        title: 'The Statistics Block',
+        description: 'The first scroll has one job: prove scale. 15+ projects, 500M+ valuation, 2000+ units, 10M+ sq.ft. designed. Numbers do that faster than copy can.',
+        image: '/f-re-stats.png',
+        note: 'Recruiters and developers both skim — give them four numbers before any paragraph.'
+      },
+      {
+        title: 'Project Detail Template',
+        description: 'One template that scales infinitely — Fashion Z, F Residence, Terra Casa, all built from the same components. The "More Projects" carousel was a deliberate cross-sell engineered into the template.',
+        image: '/f-re-project-detail.png',
+        note: 'Designing the system, not the page. New projects ship in hours, not weeks.'
+      },
+      {
+        title: 'B2B Intent-Qualifying Contact Form',
+        description: 'A standard contact form treats a developer and an end-buyer the same. We split the form into Personal Information, Developer Information, and Licensing Category — sales gets a pre-qualified lead, not noise.',
+        image: '/f-re-contact.png',
+        note: 'Form fields are a strategic decision, not a UI one. Each field is a question you\'re asking on behalf of the sales team.'
+      }
+    ],
+    statsBlock: [
+      { value: '9', label: 'Page Templates Shipped' },
+      { value: '24', label: 'Reusable Components' },
+      { value: '5', label: 'Developer Brands at Launch' },
+      { value: '3×', label: 'Faster Handoff Cycle' }
+    ],
+    brandsOnboarded: ['Merlin Group', 'Terra Casa', 'Danube Fashionz', 'SBP', 'Glenworld'],
+    results: [
+      'Site live and shipping at frealestatebyftv.in — verifiable, not a mockup.',
+      '9 page templates built from a single 24-component library.',
+      '5 developer brands onboarded at launch (Merlin, Terra Casa, Danube, SBP, Glenworld).',
+      'Press coverage in The Times of India and Newstime — real third-party validation embedded into the site.',
+      'Handoff cycle reduced ~3× — average 1 review round per template vs. 3–4 baseline, by front-loading specs and edge cases.',
+      'Component library still in active use for projects added post-launch.'
+    ],
+    contentImages: [
+      '/f-re-sitemap.png',
+      '/f-re-components.png',
+      '/f-re-handoff.png'
+    ],
+    highFiImages: [
+      '/f-re-home.png',
+      '/f-re-residential.png',
+      '/f-re-press.png',
+      '/f-re-project-detail.png',
+      '/f-re-contact.png'
+    ],
+    reflection: "My biggest learning: a great Figma file is worth nothing if developers can't build from it on the first read. Going in, I thought design ended when the file was clean. I learned that handoff is a separate craft — it's writing for engineers, not for designers. The annotations, the edge cases, the breakpoint behavior — those are design deliverables, not afterthoughts. If I were redoing this, I'd build the component library before the page designs, not alongside them. Half the rework on this project came from designing pages first and back-deriving components second. The harder lesson: as the most junior person on a 5-person team, I had to earn the right to flag dev-spec mismatches. I learned to do it by showing, not telling — opening Figma side-by-side with the deployed preview and pointing at the diff."
   }
 };
 
@@ -312,11 +404,53 @@ const CaseStudyDetail: React.FC = () => {
           transition={{ delay: 0.2 }}
           className="text-3xl md:text-5xl font-serif font-bold text-ink mb-5 leading-tight"
         >
-          {study.id === '1' ? 'Speeding Up Document Verification by 20× Through AI-Driven Automation' : study.title}
+          {study.id === '1'
+            ? 'Speeding Up Document Verification by 20× Through AI-Driven Automation'
+            : study.id === '3'
+              ? 'Designing FashionTV’s First Luxury Real-Estate Platform'
+              : study.title}
         </motion.h1>
 
+        {study.id === '3' && (
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="text-xl md:text-2xl font-serif italic text-pencil leading-relaxed mb-8 max-w-3xl"
+          >
+            A B2B brand-licensing site connecting global developers — Merlin Group, Danube, SBP, Glenworld — to the FashionTV brand. Live across <span className="marker-highlight px-1">9 page templates</span>.
+          </motion.p>
+        )}
+
+        {study.id === '3' && study.liveUrl && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap gap-3 mb-10"
+          >
+            <a
+              href={study.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sketch-button inline-flex items-center gap-2 bg-ink text-paper px-5 py-2.5 font-hand font-bold text-base shadow-md"
+            >
+              <ExternalLink size={16} />
+              <span>View Live Site</span>
+            </a>
+            <span className="inline-flex items-center gap-2 bg-paper border-2 border-ink px-5 py-2.5 font-hand text-base text-ink rounded-full transform -rotate-1">
+              <Users size={16} />
+              <span>Team: {study.teamSize?.designers} designers · {study.teamSize?.developers} devs</span>
+            </span>
+            <span className="inline-flex items-center gap-2 bg-blue-50 border-2 border-dashed border-blue-300 px-5 py-2.5 font-hand text-base text-blue-700 rounded-full transform rotate-1">
+              <Pencil size={16} />
+              <span>Component Design + Dev Handoff Lead</span>
+            </span>
+          </motion.div>
+        )}
+
         {study.id === '1' && (
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -381,6 +515,15 @@ const CaseStudyDetail: React.FC = () => {
                    <li><a href="#ideation" className="hover:text-ink">Workflows</a></li>
                    <li><a href="#process" className="hover:text-ink">Sketches & System</a></li>
                    <li><a href="#results" className="hover:text-ink">Outcomes</a></li>
+                 </>
+               ) : study.id === '3' ? (
+                 <>
+                   <li><a href="#problem" className="hover:text-ink">The Challenge</a></li>
+                   <li><a href="#team" className="hover:text-ink">Team & Role</a></li>
+                   <li><a href="#process" className="hover:text-ink">System & Handoff</a></li>
+                   <li><a href="#screens" className="hover:text-ink">Sections I Owned</a></li>
+                   <li><a href="#results" className="hover:text-ink">Outcomes</a></li>
+                   <li><a href="#reflection" className="hover:text-ink">Reflection</a></li>
                  </>
                ) : (
                  <>
@@ -477,7 +620,229 @@ const CaseStudyDetail: React.FC = () => {
                  </ul>
               </div>
             )}
+            {study.id === '3' && study.bottlenecks && (
+              <div className="bg-red-500/5 p-6 rounded-lg border border-red-500/10">
+                 <h4 className="font-bold font-hand text-lg mb-3 text-red-500">Three audiences. One tab. The bottlenecks:</h4>
+                 <ul className="space-y-2 font-serif text-ink">
+                   {study.bottlenecks.map((b, i) => (
+                     <li key={i} className="flex items-start">
+                       <span className="font-hand text-red-500 mr-3 mt-0.5">→</span>
+                       <span>{b}</span>
+                     </li>
+                   ))}
+                 </ul>
+              </div>
+            )}
           </motion.section>
+
+          {/* Team & My Role (Case 3) */}
+          {study.id === '3' && study.ownership && (
+            <motion.section
+              id="team"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-serif font-bold text-ink mb-8 flex items-center">
+                  👥 The Team & My Role
+                  <DoodleUnderline className="ml-4 w-32 text-blue-400 opacity-50" />
+              </h2>
+
+              {/* Team makeup */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                <div className="bg-paper p-6 sketch-border transform -rotate-1">
+                  <div className="flex items-center mb-3">
+                    <Pencil size={20} className="text-blue-600 mr-3" />
+                    <h4 className="font-hand text-xl font-bold text-ink">Design (2)</h4>
+                  </div>
+                  <ul className="space-y-1.5 font-serif text-ink">
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 rounded-full bg-blue-500 mr-3"></span>
+                      <span className="font-bold">Vidhi Bhanushali (me)</span>
+                      <span className="ml-2 text-sm text-pencil italic">— components + handoff</span>
+                    </li>
+                    <li className="flex items-center text-pencil">
+                      <span className="w-2 h-2 rounded-full bg-pencil/40 mr-3"></span>
+                      <span>Senior Designer — review & polish</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-paper p-6 sketch-border transform rotate-1">
+                  <div className="flex items-center mb-3">
+                    <Code2 size={20} className="text-green-600 mr-3" />
+                    <h4 className="font-hand text-xl font-bold text-ink">Engineering (3)</h4>
+                  </div>
+                  <ul className="space-y-1.5 font-serif text-pencil">
+                    <li className="flex items-center"><span className="w-2 h-2 rounded-full bg-green-500/60 mr-3"></span><span>Full-stack dev — frontend lead</span></li>
+                    <li className="flex items-center"><span className="w-2 h-2 rounded-full bg-green-500/60 mr-3"></span><span>Full-stack dev — CMS + APIs</span></li>
+                    <li className="flex items-center"><span className="w-2 h-2 rounded-full bg-green-500/60 mr-3"></span><span>Full-stack dev — integrations</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Ownership */}
+              <div className="bg-blue-500/5 p-8 rounded-2xl border-2 border-dashed border-blue-300/40">
+                <h4 className="font-hand text-xl font-bold text-blue-700 mb-5 flex items-center">
+                  <span className="text-2xl mr-2">✏️</span> What I Owned
+                </h4>
+                <ul className="space-y-4">
+                  {study.ownership.map((item, i) => (
+                    <li key={i} className="flex items-start text-ink font-serif text-lg leading-relaxed">
+                      <span className="font-hand font-bold text-blue-600 mr-3 mt-1">{String(i + 1).padStart(2, '0')}.</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Why this matters */}
+              <div className="mt-8 p-6 bg-highlight/20 sketch-border transform rotate-1 relative">
+                <DoodleSparkle className="absolute -top-4 -right-4 w-10 h-10 text-yellow-400 opacity-70" />
+                <p className="text-lg font-serif italic text-ink leading-relaxed">
+                  <strong className="font-hand not-italic text-xl text-ink mr-2">💡 Why this matters:</strong>
+                  As a Computer Engineering student, I bridged the design–development gap natively. I could read the developers' React, spot when a component was diverging from spec, and fix it in Figma — instead of escalating.
+                </p>
+              </div>
+            </motion.section>
+          )}
+
+          {/* System & Handoff (Case 3) */}
+          {study.id === '3' && study.handoffPractices && (
+            <motion.section
+              id="process"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-serif font-bold text-ink mb-8 flex items-center">
+                  🧩 From Sitemap to System
+                  <DoodleArrow className="ml-4 w-12 h-12 text-blue-300 opacity-60" />
+              </h2>
+              <p className="text-xl text-ink font-serif leading-relaxed mb-10">
+                {study.approach}
+              </p>
+
+              {/* Component library + Handoff side-by-side */}
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                {/* Component library */}
+                <div className="bg-paper p-8 sketch-border relative">
+                  <div className="flex items-center mb-4">
+                    <Layers size={22} className="text-blue-600 mr-3" />
+                    <h3 className="text-2xl font-serif font-bold text-ink">The Component Library</h3>
+                  </div>
+                  <p className="font-serif text-ink leading-relaxed mb-5">
+                    I built every page from one library — <span className="marker-highlight px-1 font-bold">{study.componentsCount} reusable components</span>, each with desktop + tablet + mobile variants and at least 3 interaction states.
+                  </p>
+                  <p className="font-serif italic text-pencil text-base">
+                    The engineers built each component once. 9 templates assembled themselves.
+                  </p>
+                  <DoodleStar className="absolute -top-4 -right-4 w-10 h-10 text-yellow-400 opacity-60" />
+                </div>
+
+                {/* Handoff practices */}
+                <div className="bg-ink text-paper p-8 rounded-[30px] relative overflow-hidden">
+                  <div className="flex items-center mb-4">
+                    <Code2 size={22} className="text-blue-300 mr-3" />
+                    <h3 className="text-2xl font-serif font-bold">Developer Handoff</h3>
+                  </div>
+                  <p className="font-serif leading-relaxed opacity-90 mb-5">
+                    Every component shipped with:
+                  </p>
+                  <ul className="space-y-2.5">
+                    {study.handoffPractices.map((p, i) => (
+                      <li key={i} className="flex items-start font-serif text-sm leading-relaxed opacity-95">
+                        <span className="font-hand text-blue-300 mr-2 mt-0.5">✓</span>
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <DoodleSpiral className="absolute -bottom-12 -right-12 w-40 h-40 text-white opacity-10" />
+                </div>
+              </div>
+
+              {/* Brand strip */}
+              {study.brandsOnboarded && (
+                <div className="bg-paper p-6 border-2 border-dashed border-gray-300 rounded-2xl">
+                  <p className="font-hand text-pencil text-base mb-3 uppercase tracking-wider">Developer brands onboarded at launch</p>
+                  <div className="flex flex-wrap gap-3">
+                    {study.brandsOnboarded.map((brand, i) => (
+                      <span
+                        key={i}
+                        className="px-5 py-2 bg-paper border-2 border-ink font-serif text-base text-ink"
+                        style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
+                      >
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </motion.section>
+          )}
+
+          {/* Sections I Owned (Case 3) - alternating image/text */}
+          {study.id === '3' && study.sectionsOwned && (
+            <section id="screens">
+              <h2 className="text-3xl font-serif font-bold text-ink mb-12 flex items-center">
+                  📐 Sections I Designed End-to-End
+                  <DoodleUnderline className="ml-4 w-40 text-blue-300 opacity-50" />
+              </h2>
+
+              <div className="space-y-24">
+                {study.sectionsOwned.map((sec, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05 }}
+                    className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-10 items-center`}
+                  >
+                    <div className="flex-1 w-full">
+                      <div className="sketch-border bg-paper p-2 shadow-xl transform transition-transform hover:scale-[1.01]" style={{ rotate: idx % 2 === 0 ? '-1deg' : '1deg' }}>
+                        <img
+                          src={sec.image}
+                          alt={sec.title}
+                          className="w-full h-auto rounded-lg"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex-1 space-y-5">
+                      <span className="font-hand text-blue-600 text-lg">0{idx + 1}</span>
+                      <h3 className="text-3xl font-serif font-bold text-ink leading-tight">{sec.title}</h3>
+                      <p className="text-lg font-serif text-ink leading-relaxed">
+                        {sec.description}
+                      </p>
+                      <div className="flex items-start bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                        <span className="font-serif text-base italic text-gray-700">“{sec.note}”</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Stats Strip (Case 3) - sits just above Outcomes */}
+          {study.id === '3' && study.statsBlock && (
+            <motion.section
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="bg-ink text-paper p-10 rounded-[30px] relative overflow-hidden"
+            >
+              <DoodleSpiral className="absolute -top-10 -right-10 w-44 h-44 text-white opacity-10" />
+              <h3 className="font-hand text-xl mb-6 opacity-80 uppercase tracking-widest">By the Numbers</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
+                {study.statsBlock.map((s, i) => (
+                  <div key={i}>
+                    <div className="text-5xl md:text-6xl font-serif font-bold text-paper mb-1">{s.value}</div>
+                    <div className="font-hand text-base text-blue-200 leading-tight">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
+          )}
 
           {/* Solution Section (Groomify) */}
           {study.id === '2' && (
@@ -671,7 +1036,7 @@ const CaseStudyDetail: React.FC = () => {
             <div className="flex items-center space-x-3 mb-8">
                <Zap className="text-yellow-600 fill-yellow-600" size={32} />
                <h2 className="text-3xl font-serif font-bold text-ink">
-                 {study.id === '1' ? 'Impact & Outcomes' : '🧪 What I Would Test'}
+                 {study.id === '1' || study.id === '3' ? 'Impact & Outcomes' : '🧪 What I Would Test'}
                </h2>
             </div>
             <div className="grid sm:grid-cols-2 gap-8">
@@ -736,6 +1101,41 @@ const CaseStudyDetail: React.FC = () => {
                 </p>
               </div>
             </section>
+          )}
+
+          {/* Closing CTA (Case 3) */}
+          {study.id === '3' && study.liveUrl && (
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="pt-10 border-t-2 border-dashed border-gray-200"
+            >
+              <div className="bg-highlight/20 p-10 sketch-border relative transform rotate-1 text-center">
+                <DoodleStar className="absolute -top-6 -left-6 w-14 h-14 text-yellow-400 opacity-60 animate-float" />
+                <h3 className="text-3xl md:text-4xl font-serif font-bold text-ink mb-4">See it live.</h3>
+                <p className="text-lg font-serif italic text-pencil mb-8 max-w-xl mx-auto">
+                  Curious about design systems, dev handoff, or B2B web work? The site is shipping — go poke at it.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                  <a
+                    href={study.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sketch-button inline-flex items-center gap-2 bg-ink text-paper px-7 py-3 font-hand font-bold text-lg shadow-lg"
+                  >
+                    <ExternalLink size={18} />
+                    <span>frealestatebyftv.in</span>
+                  </a>
+                  <a
+                    href="mailto:vvidhi.design@gmail.com"
+                    className="font-hand text-lg text-pencil hover:text-ink underline decoration-wavy decoration-blue-300"
+                  >
+                    or drop a hello →
+                  </a>
+                </div>
+              </div>
+            </motion.section>
           )}
 
         </div>
