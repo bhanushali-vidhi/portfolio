@@ -46,17 +46,6 @@ const Home: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-10 max-w-3xl"
-        >
-          <p className="text-2xl md:text-3xl font-serif text-ink leading-snug">
-            I design <span className="marker-highlight px-1">enterprise tools and consumer products</span> that ship — turning complex workflows into interfaces people actually want to use.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="flex items-center justify-between mb-12"
         >
           <div className="flex items-center space-x-4">
