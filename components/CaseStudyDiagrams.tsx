@@ -37,7 +37,7 @@ export const SitemapSVG: React.FC<{ className?: string }> = ({ className = '' })
 
     {/* Title */}
     <text x="40" y="44" fontFamily="'Caveat', cursive" fontSize="26" fill={COLORS.pencil}>
-      Site Architecture · 9 templates
+      Site Map — the canvas I designed within
     </text>
 
     {/* Root: Home */}

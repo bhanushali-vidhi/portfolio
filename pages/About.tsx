@@ -16,9 +16,9 @@ const About: React.FC = () => {
   };
 
   const services = [
-    "UX Design", "Product Design", "Service Design", "A11Y", 
-    "User Research & Testing", "AI Design", "Design System", 
-    "Concepting", "Strategy"
+    "Product Design", "UX Design", "Design Systems",
+    "Developer Handoff", "Enterprise UX", "Prototyping",
+    "User Research", "AI-driven Workflows", "Accessibility (WCAG)"
   ];
 
   return (
@@ -95,7 +95,7 @@ const About: React.FC = () => {
           >
              <h3 className="text-4xl md:text-5xl font-serif font-bold mb-6">Manifesto</h3>
              <p className="text-xl md:text-2xl font-serif leading-relaxed opacity-90">
-               "I've always fallen in love with others' work. Visually stunning, but more importantly design that works. It motivates me, wanting to make the most out of myself. Now I'm working towards being that someone, who can inspire someone else the same way others did to me."
+               "Design that ships beats design that wins awards. The job isn't to be clever — it's to make the messy thing usable, then make it beautiful, in that order. I bridge the gap between Figma and React because somebody has to."
              </p>
              <DoodleSpiral className="absolute -bottom-10 -right-10 w-48 h-48 opacity-10 text-white" />
           </motion.div>
@@ -162,7 +162,7 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="md:col-span-12 sketch-border bg-paper p-8 relative overflow-hidden"
           >
-             <h3 className="text-3xl font-hand font-bold text-ink mb-8">Services</h3>
+             <h3 className="text-3xl font-hand font-bold text-ink mb-8">What I do</h3>
              <div className="flex flex-wrap gap-3">
                 {services.map((service, idx) => (
                   <motion.span 

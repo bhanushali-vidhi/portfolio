@@ -329,7 +329,7 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
       '/f-re-press.jpg',
       '/f-re-contact.jpg'
     ],
-    reflection: "My biggest learning: a great Figma file is worth nothing if developers can't build from it on the first read. Going in, I thought design ended when the file was clean. I learned that handoff is a separate craft — it's writing for engineers, not for designers. The annotations, the edge cases, the breakpoint behavior — those are design deliverables, not afterthoughts. If I were redoing this, I'd build the component library before the page designs, not alongside them. Half the rework on this project came from designing pages first and back-deriving components second. The harder lesson: as the most junior person on a 5-person team, I had to earn the right to flag dev-spec mismatches. I learned to do it by showing, not telling — opening Figma side-by-side with the deployed preview and pointing at the diff."
+    reflection: "My biggest learning: a great Figma file is worth nothing if developers can't build from it on the first read. Handoff is its own craft — writing for engineers, not for designers. Annotations, edge cases, breakpoint behavior are design deliverables, not afterthoughts. If I were redoing this, I'd build the component library before the page designs, not alongside them. Half the rework came from designing pages first and back-deriving components second. The other useful tactic I picked up: when a built component drifts from spec, don't escalate — open Figma side-by-side with the deployed preview and point at the diff. Showing beats telling, every time."
   }
 };
 
