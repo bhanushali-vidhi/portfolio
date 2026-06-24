@@ -15,19 +15,19 @@ const caseStudies: CaseStudy[] = [
     link: '#'
   },
   {
-    id: '2',
-    title: 'Groomify',
-    category: 'Product Thinking',
-    description: 'Designing for decisions people are afraid to make. A real-time grooming simulation that reduces uncertainty.',
-    imageUrl: '/groomify.png',
-    link: '#'
-  },
-  {
     id: '3',
     title: 'F Real Estate by FashionTV',
     category: 'Design Systems × Dev Handoff',
     description: 'Designing FashionTV’s first luxury real-estate platform. A shared component system, five developer brands, and a B2B site that’s live and shipping.',
     imageUrl: '/f-real-estate-hero.jpg',
+    link: '#'
+  },
+  {
+    id: '2',
+    title: 'Groomify',
+    category: 'Product Thinking',
+    description: 'Designing for decisions people are afraid to make. A real-time grooming simulation that reduces uncertainty.',
+    imageUrl: '/groomify.png',
     link: '#'
   }
 ];
