@@ -80,7 +80,7 @@ const education: Education[] = [
     id: '1',
     degree: 'B.Tech in Computer Engineering · GPA 9.42 / 10',
     school: 'University of Mumbai',
-    year: '2022 – June 2026 (Expected)'
+    year: '2022 – 2026'
   },
   {
     id: '2',

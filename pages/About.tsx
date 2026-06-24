@@ -179,6 +179,30 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* Section: Education */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-32"
+      >
+        <div className="flex items-center space-x-4 mb-8">
+          <h2 className="text-3xl font-hand font-bold text-ink transform rotate-1">Education</h2>
+          <div className="h-0.5 flex-grow bg-gray-200 border-dashed border-t-2"></div>
+          <BookOpen className="w-7 h-7 text-pencil" strokeWidth={1.8} />
+        </div>
+
+        <div className="sketch-border bg-paper p-6 sm:p-8 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4">
+          <div>
+            <h3 className="text-xl md:text-2xl font-serif font-bold text-ink">University of Mumbai</h3>
+            <p className="text-base md:text-lg font-serif text-pencil italic">
+              B.Tech in Computer Engineering · GPA <span className="marker-highlight px-1 font-bold text-ink">9.42 / 10</span>
+            </p>
+          </div>
+          <span className="font-hand text-xl text-pencil">2022 – 2026</span>
+        </div>
+      </motion.section>
+
       {/* Section 3: Film Strip Gallery */}
       {/* <section className="mb-32">
         <motion.div 
