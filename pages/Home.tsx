@@ -42,7 +42,18 @@ const Home: React.FC = () => {
 
       {/* 1. Selected Work (Now First) */}
       <section className="mb-32">
-        <motion.div 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-10 max-w-3xl"
+        >
+          <p className="text-2xl md:text-3xl font-serif text-ink leading-snug">
+            I design <span className="marker-highlight px-1">enterprise tools and consumer products</span> that ship — turning complex workflows into interfaces people actually want to use.
+          </p>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -134,7 +145,7 @@ const Home: React.FC = () => {
         
         <div className="relative">
           <p className="text-xl md:text-3xl text-pencil font-serif italic leading-relaxed pl-6 border-l-4 border-blue-100">
-            I am a <span className="marker-highlight px-1">Product Designer Intern</span> & Computer Engineer based in Mumbai. I craft intuitive digital experiences by bridging the gap between design and development.
+            I am a <span className="marker-highlight px-1">Product Designer</span> & Computer Engineer based in Mumbai. I craft intuitive digital experiences by bridging the gap between design and development.
           </p>
           
           <div className="mt-10 flex items-center space-x-6">

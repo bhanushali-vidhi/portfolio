@@ -108,25 +108,35 @@ const Resume: React.FC = () => {
     <div className="min-h-screen bg-[#faf8f4] pt-24 pb-16 print:p-0 print:bg-white transition-colors duration-500">
       
       {/* Action Bar (Hidden on Print) */}
-      <motion.div 
+      <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="max-w-4xl mx-auto px-6 mb-6 flex justify-between items-center print:hidden"
+        className="max-w-4xl mx-auto px-6 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 print:hidden"
       >
         <Link to="/" className="flex items-center text-pencil hover:text-ink font-hand text-lg group">
           <ArrowLeft size={18} className="mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to Work
         </Link>
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href="/Vidhi-Bhanushali-Resume.pdf"
-          download="Vidhi-Bhanushali-Resume.pdf"
-          className="sketch-button flex items-center space-x-2 bg-ink text-paper px-5 py-2 font-hand font-bold text-lg shadow-lg"
-        >
-          <Download size={18} />
-          <span>Download PDF</span>
-        </motion.a>
+        <div className="flex items-center gap-4 flex-wrap">
+          <a
+            href="/Vidhi-Bhanushali-Resume-ATS.pdf"
+            download="Vidhi-Bhanushali-Resume-ATS.pdf"
+            className="font-hand text-base text-pencil hover:text-ink underline decoration-dotted underline-offset-4 transition-colors"
+            title="ATS-optimized plain version for application portals"
+          >
+            Need an ATS-friendly version? →
+          </a>
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="/Vidhi-Bhanushali-Resume.pdf"
+            download="Vidhi-Bhanushali-Resume.pdf"
+            className="sketch-button flex items-center space-x-2 bg-ink text-paper px-5 py-2 font-hand font-bold text-lg shadow-lg"
+          >
+            <Download size={18} />
+            <span>Download PDF</span>
+          </motion.a>
+        </div>
       </motion.div>
 
       {/* Outer Notebook Wire Binder Wrapper for Large Screens */}
