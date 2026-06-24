@@ -313,12 +313,6 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
         note: 'Form fields are a strategic decision, not a UI one. Each field is a question you\'re asking on behalf of the sales team.'
       }
     ],
-    statsBlock: [
-      { value: '9', label: 'Page Templates Shipped' },
-      { value: '24', label: 'Reusable Components' },
-      { value: '5', label: 'Developer Brands at Launch' },
-      { value: '3×', label: 'Faster Handoff Cycle' }
-    ],
     brandsOnboarded: ['Merlin Group', 'Terra Casa', 'Danube Fashionz', 'SBP', 'Glenworld'],
     results: [
       'Site live and shipping at frealestatebyftv.in — verifiable, not a mockup.',
@@ -823,27 +817,6 @@ const CaseStudyDetail: React.FC = () => {
                 ))}
               </div>
             </section>
-          )}
-
-          {/* Stats Strip (Case 3) - sits just above Outcomes */}
-          {study.id === '3' && study.statsBlock && (
-            <motion.section
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="bg-ink text-paper p-10 rounded-[30px] relative overflow-hidden"
-            >
-              <DoodleSpiral className="absolute -top-10 -right-10 w-44 h-44 text-white opacity-10" />
-              <h3 className="font-hand text-xl mb-6 opacity-80 uppercase tracking-widest">By the Numbers</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative z-10">
-                {study.statsBlock.map((s, i) => (
-                  <div key={i}>
-                    <div className="text-5xl md:text-6xl font-serif font-bold text-paper mb-1">{s.value}</div>
-                    <div className="font-hand text-base text-blue-200 leading-tight">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.section>
           )}
 
           {/* Solution Section (Groomify) */}
