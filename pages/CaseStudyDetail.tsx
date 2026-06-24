@@ -297,25 +297,19 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
       {
         title: 'Press as a Credibility Engine',
         description: 'A filterable press grid (All / Merlin / Terra Casa / Danube / SBP / Glenworld) that surfaces real coverage — Times of India, Newstime — exactly where developers expect proof. Press wasn\'t a footer afterthought; it became the conversion moment.',
-        image: '/f-re-press.png',
+        image: '/f-re-press.jpg',
         note: 'For a B2B brand-licensing site, third-party press beats first-party copy. Always.'
       },
       {
         title: 'The Statistics Block',
         description: 'The first scroll has one job: prove scale. 15+ projects, 500M+ valuation, 2000+ units, 10M+ sq.ft. designed. Numbers do that faster than copy can.',
-        image: '/f-re-stats.png',
+        image: '/f-re-stats.jpg',
         note: 'Recruiters and developers both skim — give them four numbers before any paragraph.'
-      },
-      {
-        title: 'Project Detail Template',
-        description: 'One template that scales infinitely — Fashion Z, F Residence, Terra Casa, all built from the same components. The "More Projects" carousel was a deliberate cross-sell engineered into the template.',
-        image: '/f-re-project-detail.png',
-        note: 'Designing the system, not the page. New projects ship in hours, not weeks.'
       },
       {
         title: 'B2B Intent-Qualifying Contact Form',
         description: 'A standard contact form treats a developer and an end-buyer the same. We split the form into Personal Information, Developer Information, and Licensing Category — sales gets a pre-qualified lead, not noise.',
-        image: '/f-re-contact.png',
+        image: '/f-re-contact.jpg',
         note: 'Form fields are a strategic decision, not a UI one. Each field is a question you\'re asking on behalf of the sales team.'
       }
     ],
@@ -334,17 +328,12 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
       'Handoff cycle reduced ~3× — average 1 review round per template vs. 3–4 baseline, by front-loading specs and edge cases.',
       'Component library still in active use for projects added post-launch.'
     ],
-    contentImages: [
-      '/f-re-sitemap.png',
-      '/f-re-components.png',
-      '/f-re-handoff.png'
-    ],
+    contentImages: [],
     highFiImages: [
-      '/f-re-home.png',
-      '/f-re-residential.png',
-      '/f-re-press.png',
-      '/f-re-project-detail.png',
-      '/f-re-contact.png'
+      '/f-re-home.jpg',
+      '/f-re-residential.jpg',
+      '/f-re-press.jpg',
+      '/f-re-contact.jpg'
     ],
     reflection: "My biggest learning: a great Figma file is worth nothing if developers can't build from it on the first read. Going in, I thought design ended when the file was clean. I learned that handoff is a separate craft — it's writing for engineers, not for designers. The annotations, the edge cases, the breakpoint behavior — those are design deliverables, not afterthoughts. If I were redoing this, I'd build the component library before the page designs, not alongside them. Half the rework on this project came from designing pages first and back-deriving components second. The harder lesson: as the most junior person on a 5-person team, I had to earn the right to flag dev-spec mismatches. I learned to do it by showing, not telling — opening Figma side-by-side with the deployed preview and pointing at the diff."
   }
