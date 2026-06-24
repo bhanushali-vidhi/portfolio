@@ -6,6 +6,7 @@ import { motion } from 'motion/react';
 import { CaseStudyDetail as CaseStudyDetailType } from '../types';
 // Added DoodleSparkle to the import list
 import { DoodleUnderline, DoodleStar, DoodleArrow, DoodleCircle, DoodleSparkle, DoodleSpiral } from '../components/Doodles';
+import { SitemapSVG, ComponentsSVG, HandoffSVG } from '../components/CaseStudyDiagrams';
 
 // --- SVG Components for Workflows ---
 
@@ -261,7 +262,7 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
     id: '3',
     title: 'F Real Estate by FashionTV',
     category: 'Design Systems × Dev Handoff',
-    description: 'Designing FashionTV’s first luxury real-estate platform — a B2B brand-licensing site connecting global developers to the FTV brand. Live across 9 page templates.',
+    description: 'Designing FashionTV’s first luxury real-estate platform — a B2B brand-licensing site connecting global developers to the FTV brand.',
     imageUrl: '/f-real-estate-hero.jpg',
     link: 'https://frealestatebyftv.in/',
     liveUrl: 'https://frealestatebyftv.in/',
@@ -271,21 +272,20 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
     tools: ['Figma', 'Auto-Layout', 'Variants', 'Notion'],
     teamSize: { designers: 2, developers: 3 },
     ownership: [
-      'Built the reusable Figma component library — 24 components × 3 breakpoints — that powered all 9 templates.',
-      'Designed major sections end-to-end: Press taxonomy, Project Detail, Past Events, Statistics block, and the B2B Contact form. Senior designer reviewed and signed off.',
-      'Owned developer handoff solo — annotated specs, edge cases, breakpoint behavior, twice-weekly Figma walkthroughs, and PR-preview reviews before merge.',
+      'Designed reusable components adopted into the team’s Figma library — including the footer, mobile navigation, and contact form — each with desktop, tablet, and mobile variants and full interaction states.',
+      'Designed several pages end-to-end across the 9-template site, with senior-designer review and sign-off.',
+      'Owned developer handoff for my work — annotated spacing tokens, hover/active/disabled states, breakpoint behavior, and edge-case rules; did twice-weekly Figma walkthroughs and reviewed PR previews before merge.',
       'Acted as the bridge between design and engineering — my Computer Engineering background meant I could read the React, spot spec drift, and fix it in Figma instead of escalating.'
     ],
     challenge: 'FashionTV was launching a new B2B vertical — licensing the FTV brand to luxury real-estate developers across India and the UAE. The site had to convince three audiences in one tab: developers evaluating FTV as a co-brand for ₹500M+ projects, investors browsing curated luxury properties, and press scanning for credibility. One site, one navigation, one visual language — three completely different intents.',
-    approach: 'We mapped the audiences first, the pages second. Press became the trust-building moment, not a footer afterthought. The Project Detail template was built to scale from 5 client brands to 20+ without re-architecture. Every page assembled itself from a single 24-component library, which is what made the dev handoff fast.',
-    solution: 'A 9-template B2B platform with a shared component system, a press section that doubles as the credibility engine, and a contact form that pre-qualifies leads by intent (developer vs. investor vs. licensee).',
+    approach: 'We mapped the audiences first, the pages second. Press became the trust-building moment, not a footer afterthought. Project pages were built to scale from 5 client brands to 20+ without re-architecture. Every page assembled itself from a shared component library, which is what made the dev handoff fast.',
+    solution: 'A B2B platform built on a shared component system, a press section that doubles as the credibility engine, and a contact form that pre-qualifies leads by intent (developer vs. investor vs. licensee).',
     bottlenecks: [
       'No existing IA — content for 5+ developer clients had to coexist without diluting any one brand.',
       'Press credibility was the critical conversion lever, but had no home in the original brief.',
       'The contact form had to qualify B2B intent (developer / investor / licensee) at submission, not after.',
       'Two designers + three developers — handoff drift was the real risk, not visual polish.'
     ],
-    componentsCount: 24,
     handoffPractices: [
       'Annotated spacing tokens (4 / 8 / 12 / 16 / 24 / 32 / 48) on every component.',
       'Hover, active, and disabled states drawn explicitly — no "figure it out" gaps.',
@@ -316,11 +316,11 @@ const caseStudiesData: Record<string, CaseStudyDetailType & { highFiImages: stri
     brandsOnboarded: ['Merlin Group', 'Terra Casa', 'Danube Fashionz', 'SBP', 'Glenworld'],
     results: [
       'Site live and shipping at frealestatebyftv.in — verifiable, not a mockup.',
-      '9 page templates built from a single 24-component library.',
+      'Pages assembled from a shared component library, with my components reused across multiple templates.',
       '5 developer brands onboarded at launch (Merlin, Terra Casa, Danube, SBP, Glenworld).',
       'Press coverage in The Times of India and Newstime — real third-party validation embedded into the site.',
-      'Handoff cycle reduced ~3× — average 1 review round per template vs. 3–4 baseline, by front-loading specs and edge cases.',
-      'Component library still in active use for projects added post-launch.'
+      'Front-loading specs and edge cases at handoff cut review rounds and Slack back-and-forth on the work I owned.',
+      'Components I designed remain in active use for projects added post-launch.'
     ],
     contentImages: [],
     highFiImages: [
@@ -714,46 +714,58 @@ const CaseStudyDetail: React.FC = () => {
                   🧩 From Sitemap to System
                   <DoodleArrow className="ml-4 w-12 h-12 text-blue-300 opacity-60" />
               </h2>
-              <p className="text-xl text-ink font-serif leading-relaxed mb-10">
+              <p className="text-xl text-ink font-serif leading-relaxed mb-8">
                 {study.approach}
               </p>
 
-              {/* Component library + Handoff side-by-side */}
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
-                {/* Component library */}
-                <div className="bg-paper p-8 sketch-border relative">
-                  <div className="flex items-center mb-4">
-                    <Layers size={22} className="text-blue-600 mr-3" />
-                    <h3 className="text-2xl font-serif font-bold text-ink">The Component Library</h3>
-                  </div>
-                  <p className="font-serif text-ink leading-relaxed mb-5">
-                    I built every page from one library — <span className="marker-highlight px-1 font-bold">{study.componentsCount} reusable components</span>, each with desktop + tablet + mobile variants and at least 3 interaction states.
-                  </p>
-                  <p className="font-serif italic text-pencil text-base">
-                    The engineers built each component once. 9 templates assembled themselves.
-                  </p>
-                  <DoodleStar className="absolute -top-4 -right-4 w-10 h-10 text-yellow-400 opacity-60" />
+              {/* Sitemap diagram */}
+              <div className="sketch-border bg-paper p-3 sm:p-4 mb-12 shadow-md">
+                <SitemapSVG className="w-full h-auto" />
+              </div>
+
+              {/* Component library card */}
+              <div className="bg-paper p-6 sm:p-8 sketch-border relative mb-8">
+                <div className="flex items-center mb-4">
+                  <Layers size={22} className="text-blue-600 mr-3" />
+                  <h3 className="text-2xl font-serif font-bold text-ink">The Component Library</h3>
+                </div>
+                <p className="font-serif text-ink leading-relaxed mb-5">
+                  I designed several reusable components adopted into the team’s shared library — including the <span className="marker-highlight px-1 font-bold">footer</span>, <span className="marker-highlight px-1 font-bold">mobile navigation</span>, and <span className="marker-highlight px-1 font-bold">contact form</span>. Each shipped with desktop, tablet, and mobile variants and full interaction states.
+                </p>
+
+                <div className="bg-white p-3 border border-gray-200 rounded mb-5">
+                  <ComponentsSVG className="w-full h-auto" />
                 </div>
 
-                {/* Handoff practices */}
-                <div className="bg-ink text-paper p-8 rounded-[30px] relative overflow-hidden">
-                  <div className="flex items-center mb-4">
-                    <Code2 size={22} className="text-blue-300 mr-3" />
-                    <h3 className="text-2xl font-serif font-bold">Developer Handoff</h3>
-                  </div>
-                  <p className="font-serif leading-relaxed opacity-90 mb-5">
-                    Every component shipped with:
-                  </p>
-                  <ul className="space-y-2.5">
-                    {study.handoffPractices.map((p, i) => (
-                      <li key={i} className="flex items-start font-serif text-sm leading-relaxed opacity-95">
-                        <span className="font-hand text-blue-300 mr-2 mt-0.5">✓</span>
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <DoodleSpiral className="absolute -bottom-12 -right-12 w-40 h-40 text-white opacity-10" />
+                <p className="font-serif italic text-pencil text-base">
+                  Engineers built each once; the same component appears across multiple pages on the site.
+                </p>
+                <DoodleStar className="absolute -top-4 -right-4 w-10 h-10 text-yellow-400 opacity-60" />
+              </div>
+
+              {/* Handoff card */}
+              <div className="bg-ink text-paper p-6 sm:p-8 rounded-[30px] relative overflow-hidden mb-12">
+                <div className="flex items-center mb-4">
+                  <Code2 size={22} className="text-blue-300 mr-3" />
+                  <h3 className="text-2xl font-serif font-bold">Developer Handoff</h3>
                 </div>
+                <p className="font-serif leading-relaxed opacity-90 mb-5">
+                  Every component shipped with:
+                </p>
+                <ul className="space-y-2.5 mb-6">
+                  {study.handoffPractices.map((p, i) => (
+                    <li key={i} className="flex items-start font-serif text-sm leading-relaxed opacity-95">
+                      <span className="font-hand text-blue-300 mr-2 mt-0.5">✓</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="bg-paper p-3 rounded relative z-10">
+                  <HandoffSVG className="w-full h-auto" />
+                </div>
+
+                <DoodleSpiral className="absolute -bottom-12 -right-12 w-40 h-40 text-white opacity-10" />
               </div>
 
               {/* Brand strip */}

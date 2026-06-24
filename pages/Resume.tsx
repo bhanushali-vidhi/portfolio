@@ -26,19 +26,18 @@ const experiences: Experience[] = [
     company: 'FashionTV / FTV India Private Limited',
     period: 'Jun 2025 – Sept 2025',
     description: [
-      'Designed the component library and led developer handoff for F Real Estate by FTV — a B2B brand-licensing platform now LIVE at frealestatebyftv.in, serving 5 developer-client brands (Merlin Group, Terra Casa, Danube, SBP, Glenworld).',
-      'Shipped 9 page templates from a reusable Figma component system; owned 4 templates end-to-end (Press, Project Detail, Statistics, B2B Contact). Senior designer reviewed and signed off.',
-      'Front-loaded specs, breakpoints, and edge-case documentation — keeping most templates to a single review cycle through to production.',
+      'Contributed to F Real Estate by FTV — a B2B brand-licensing platform now LIVE at frealestatebyftv.in, serving 5 developer-client brands (Merlin Group, Terra Casa, Danube, SBP, Glenworld).',
+      'Designed reusable components (footer, mobile nav, contact form) adopted into the team’s shared Figma library; designed several pages end-to-end with senior-designer review and sign-off.',
+      'Owned developer handoff for my work — annotated specs, states, breakpoints, and edge cases; joined twice-weekly Figma walkthroughs and reviewed PR previews before merge.',
       'Contributed UI to the FTV+ subscription flow and homepage revamp under brand-led creative direction.'
     ]
   },
   {
     id: '3',
-    role: 'UI/UX Designer Intern → Junior UI/UX Designer',
+    role: 'UI/UX Designer Intern',
     company: 'Ocufox Technologies Pvt. Ltd.',
     period: 'Sept 2024 – Jan 2025',
     description: [
-      'Promoted from Intern to Junior UI/UX Designer based on shipped contributions.',
       'Led end-to-end redesign of two brand websites — Ocufox and parent company Green-2-Green — modernizing visual identity across both.',
       'Built a Figma component library and auto-layout system; authored the team’s default handoff specs and annotation patterns.',
       'Worked closely with developers to ensure pixel-perfect implementation and smooth handoffs.'
@@ -59,7 +58,7 @@ const projects: Project[] = [
     id: 'p1',
     title: 'F Real Estate by FashionTV',
     meta: 'Live · frealestatebyftv.in',
-    description: 'B2B brand-licensing platform. 9 page templates, 5 developer-client brands.',
+    description: 'B2B brand-licensing platform built on a shared component system. 5 developer-client brands at launch.',
     link: 'https://frealestatebyftv.in/'
   },
   {
